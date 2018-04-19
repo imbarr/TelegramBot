@@ -8,10 +8,10 @@ class Worker(polls: PollContainer){
   def processQuery(user: String, query: Option[Query]): Result = query match {
     case Some(q) => q match {
       case x: CreatePollQuery => createPoll(user, x)
-      case x: ListQuery => viewList(user, x)
+      case x: ViewListQuery => viewList(user, x)
       case x: DeletePollQuery => deletePoll(user, x)
       case x: StartPollQuery => startPoll(user, x)
-      case x: StopPollQuery => endPoll(user, x)
+      case x: StopPollQuery => stopPoll(user, x)
       case x: ViewResultQuery => viewResult(user, x)
     }
     case None => NotRecognized
@@ -23,7 +23,7 @@ class Worker(polls: PollContainer){
     PollCreated(id)
   }
 
-  def viewList(user: String, q: ListQuery): Result = ViewList(polls.toList)
+  def viewList(user: String, q: ViewListQuery): Result = ViewList(polls.toList)
 
   private def wrapPollFunc(user: String, q: QueryWithId, f: Int => Result): Result =
     polls.get(q.id) match {
@@ -42,7 +42,7 @@ class Worker(polls: PollContainer){
   def startPoll(user: String, q: StartPollQuery): Result =
     wrapPollFunc(user, q, id => {
       val p = polls.get(id).get
-      if (p.ended) AlreadyEnded
+      if (p.stopped) AlreadyStopped
       else if (p.started) AlreadyStarted
       else if (p.start_time.isDefined) StartedByTimer
       else {
@@ -51,15 +51,15 @@ class Worker(polls: PollContainer){
       }
     })
 
-  def endPoll(user: String, q: StopPollQuery): Result =
+  def stopPoll(user: String, q: StopPollQuery): Result =
     wrapPollFunc(user, q, id => {
       val p = polls.get(id).get
-      if (p.ended) AlreadyEnded
+      if (p.stopped) AlreadyStopped
       else if (!p.started) NotYetStarted
-      else if (p.end_time.isDefined) EndedByTimer
+      else if (p.stop_time.isDefined) StoppedByTimer
       else {
-        polls.end(id)
-        PollEnded
+        polls.stop(id)
+        PollStopped
       }
     })
 
@@ -68,7 +68,7 @@ class Worker(polls: PollContainer){
       case None => NotFound
       case Some(p) =>
         if(!p.started) NotYetStarted
-        else if(!p.ended && !p.isVisible) IsNotVisible
+        else if(!p.stopped && !p.isVisible) IsNotVisible
         else ViewResult(p)
     }
   }

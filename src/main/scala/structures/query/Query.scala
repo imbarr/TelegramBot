@@ -8,7 +8,7 @@ sealed trait Query
 case class CreatePollQuery(name: String, isAnon: Option[Boolean] = None, isVisible: Option[Boolean] = None,
                       startTime: Option[Date] = None, stopTime: Option[Date] = None) extends Query
 
-class ListQuery extends Query
+class ViewListQuery extends Query
 
 abstract sealed class QueryWithId(val id: Int) extends Query
 

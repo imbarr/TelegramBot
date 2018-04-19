@@ -11,13 +11,13 @@ class PollMemoryContainer extends PollContainer {
     case Some(x) => Some(x.updated())
   }
 
-  def start(key: Int): Unit = modify(key, p => p.start())
+  override def start(key: Int): Unit = modify(key, p => p.start())
 
-  def end(key: Int): Unit = modify(key, p => p.end())
+  override def stop(key: Int): Unit = modify(key, p => p.end())
 
   private def modify(key: Int, f:Poll => Poll): Unit =
     if(polls.get(key).isDefined)
-      add(f(delete(key).get))
+      polls += (key -> f(polls(key)))
 
   override def add(value: Poll): Int = {
     id += 1

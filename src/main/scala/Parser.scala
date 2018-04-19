@@ -25,7 +25,7 @@ class Parser extends RegexParsers{
   val parsers: Parser[Query] =
     "/create_poll" ~ arg(string) ~ optArg(isAnon) ~ optArg(isVisible) ~ optArg(date) ~ optArg(date) ^^
       (x => CreatePollQuery(x._1._1._1._1._2, x._1._1._1._2, x._1._1._2, x._1._2, x._2)) |
-      "/list" ^^ (_ => new ListQuery) |
+      "/list" ^^ (_ => new ViewListQuery) |
       "/delete_poll" ~ arg(int) ^^ (p => DeletePollQuery(p._2)) |
       "/start_poll" ~ arg(int) ^^ (p => StartPollQuery(p._2)) |
       "/stop_poll" ~ arg(int) ^^ (p => StopPollQuery(p._2)) |

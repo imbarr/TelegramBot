@@ -32,7 +32,7 @@ class ParserTests extends FlatSpec with Matchers {
       "(((name))", "(n) (some)", "(n) (continuous)", "(n) (no) (g)", "(n) (no) (afterstop) (time) (time)")
 
   it should "parse list command" in assert(p.getQuery("/list").getOrElse() match{
-    case x: ListQuery => true
+    case x: ViewListQuery => true
     case _ => false
   })
 
