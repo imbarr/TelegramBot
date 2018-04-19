@@ -1,7 +1,7 @@
 /create_poll (gsgs (( oo))))) (no)
 /create_poll (second) (yes) (continuous)
 /list
-/delete_poll (1)
+/delete_poll (1dbffgfb)
 /start_poll (0)
 /result(0)
 /stop_poll (0)

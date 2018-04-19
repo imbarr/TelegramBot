@@ -1,18 +1,12 @@
-package main.scala
-
-import main.scala.structures.Message._
-import main.scala.structures.result._
+import structures.Message._
+import structures.result._
 
 class Printer {
-  def get(result: Option[Result]): String = result match{
-    case Some(r) => r match{
-      case x: PollCreated => "Poll " + x.pollId + " was created."
-      case x: ViewList => x.polls.map(p => p._1 + " " + p._2.name).mkString("\n")
-      case x: ViewResult => "Not implemented."
-      case x: MsgResult => msgMap.getOrElse(x.msg, "")
-      case _ => ""
-    }
-    case None => "Command not recognized"
+  def get(result: Result): String = result match{
+    case x: PollCreated => "Poll " + x.pollId + " was created."
+    case x: ViewList => x.polls.map(p => p._1 + " " + p._2.name).mkString("\n")
+    case x: ViewResult => "Not implemented."
+    case x: MsgResult => msgMap.getOrElse(x.msg, "")
   }
 
   private val msgMap: Map[Message, String] = Map(
@@ -27,7 +21,8 @@ class Printer {
     StartedByTimer -> "Error: Poll can only be started by a timer.",
     EndedByTimer -> "Error: Poll can only be ended by a timer.",
     NotFound -> "Error: Poll not found.",
-    IsNotVisible -> "Error: Poll results can not be viewed before it ends."
+    IsNotVisible -> "Error: Poll results can not be viewed before it ends.",
+    NotRecognized -> "Error: Command not recognized."
   )
 }
 

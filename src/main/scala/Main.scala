@@ -1,6 +1,4 @@
-package main.scala
-
-import main.scala.container.PollMemoryContainer
+import container.PollMemoryContainer
 
 import scala.io.Source
 

@@ -1,31 +1,29 @@
-package main.scala
-
-import main.scala.container.PollContainer
-import main.scala.structures.query._
-import main.scala.structures.Message._
-import main.scala.structures.Poll
+import container.PollContainer
+import structures.query._
+import structures.Message._
+import structures.Poll
 import structures.result._
 
 class Worker(polls: PollContainer){
-  def processQuery(user: String, query: Option[Query]): Option[Result] = query match {
+  def processQuery(user: String, query: Option[Query]): Result = query match {
     case Some(q) => q match {
-      case x: CreatePollQuery => Some(createPoll(user, x))
-      case x: ListQuery => Some(viewList(user, x))
-      case x: DeletePollQuery => Some(deletePoll(user, x))
-      case x: StartPollQuery => Some(startPoll(user, x))
-      case x: EndPollQuery => Some(endPoll(user, x))
-      case x: ViewResultQuery => Some(viewResult(user, x))
+      case x: CreatePollQuery => createPoll(user, x)
+      case x: ListQuery => viewList(user, x)
+      case x: DeletePollQuery => deletePoll(user, x)
+      case x: StartPollQuery => startPoll(user, x)
+      case x: StopPollQuery => endPoll(user, x)
+      case x: ViewResultQuery => viewResult(user, x)
     }
-    case None => None
+    case None => NotRecognized
   }
 
   def createPoll(user: String, q: CreatePollQuery): Result = {
-    val id = polls.add(new Poll(user, q.name, q.isAnon.getOrElse(true),
+    val id = polls.add(Poll(user, q.name, q.isAnon.getOrElse(true),
       q.isVisible.getOrElse(false), q.startTime, q.stopTime))
-    new PollCreated(id)
+    PollCreated(id)
   }
 
-  def viewList(user: String, q: ListQuery): Result = new ViewList(polls.toList)
+  def viewList(user: String, q: ListQuery): Result = ViewList(polls.toList)
 
   private def wrapPollFunc(user: String, q: QueryWithId, f: Int => Result): Result =
     polls.get(q.id) match {
@@ -53,7 +51,7 @@ class Worker(polls: PollContainer){
       }
     })
 
-  def endPoll(user: String, q: EndPollQuery): Result =
+  def endPoll(user: String, q: StopPollQuery): Result =
     wrapPollFunc(user, q, id => {
       val p = polls.get(id).get
       if (p.ended) AlreadyEnded
@@ -71,7 +69,7 @@ class Worker(polls: PollContainer){
       case Some(p) =>
         if(!p.started) NotYetStarted
         else if(!p.ended && !p.isVisible) IsNotVisible
-        else new ViewResult(p)
+        else ViewResult(p)
     }
   }
 }

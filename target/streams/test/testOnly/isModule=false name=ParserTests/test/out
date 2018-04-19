@@ -1,0 +1,9 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mParserTests:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mParser[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should parse correct create_poll commands[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not parse invalid create_poll commands[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should parse list command[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should parse other correct poll commands[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not parse invalid poll commands[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not parse unrecognized commands[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not parse not command strings[0m[0m

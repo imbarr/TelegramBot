@@ -1,6 +1,6 @@
-package main.scala.container
+package container
 
-import main.scala.structures.Poll
+import structures.Poll
 
 class PollMemoryContainer extends PollContainer {
   private var polls = Map.empty[Int, Poll]

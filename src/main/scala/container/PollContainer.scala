@@ -1,6 +1,6 @@
-package main.scala.container
+package container
 
-import main.scala.structures.Poll
+import structures.Poll
 
 trait PollContainer {
   def get(key: Int): Option[Poll]
