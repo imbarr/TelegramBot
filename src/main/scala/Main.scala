@@ -11,7 +11,7 @@ object Main{
 
     val stream = getClass.getResourceAsStream("/input.txt")
     for(l <- Source.fromInputStream(stream).getLines())
-      print(printer.get(worker.processQuery("imbarr", parser.getQuery(l))) + "\n")
+      print(printer.get(worker.processQuery("imbarr", parser.getQuery(l))).get + "\n")
   }
 }
 

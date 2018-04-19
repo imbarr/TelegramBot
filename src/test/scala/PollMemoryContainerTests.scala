@@ -1,10 +1,10 @@
 import java.util.{Calendar, Date}
 
 import container.PollMemoryContainer
-import org.scalatest.{BeforeAndAfter, FlatSpec, Matchers}
+import org.scalatest.{FlatSpec, Matchers}
 import structures.Poll
 
-class PollMemoryContainerTests extends FlatSpec with Matchers with BeforeAndAfter {
+class PollMemoryContainerTests extends FlatSpec with Matchers{
   val somePoll = Poll("user", "name")
   val past: Date = Calendar.getInstance().getTime
   past.setYear(past.getYear - 1)

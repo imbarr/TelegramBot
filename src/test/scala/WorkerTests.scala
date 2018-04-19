@@ -8,7 +8,7 @@ import structures.query.ViewListQuery
 import structures.result._
 import structures.Message._
 
-class WorkerTests extends FlatSpec with Matchers with BeforeAndAfter{
+class WorkerTests extends FlatSpec with Matchers{
   val somePoll = Poll("user", "name")
   val past: Date = Calendar.getInstance().getTime
   past.setYear(past.getYear - 1)

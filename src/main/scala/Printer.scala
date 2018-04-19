@@ -2,11 +2,11 @@ import structures.Message._
 import structures.result._
 
 class Printer {
-  def get(result: Result): String = result match{
-    case x: PollCreated => "Poll " + x.pollId + " was created."
-    case x: ViewList => x.polls.map(p => p._1 + " " + p._2.name).mkString("\n")
-    case x: ViewResult => "Not implemented."
-    case x: MsgResult => msgMap.getOrElse(x.msg, "")
+  def get(result: Result): Option[String] = result match{
+    case x: PollCreated => Some("Poll " + x.pollId + " was created.")
+    case x: ViewList => Some(x.polls.map(p => p._1 + " " + p._2.name).mkString("\n"))
+    case x: ViewResult => Some("Not implemented.")
+    case x: MsgResult => msgMap.get(x.msg)
   }
 
   private val msgMap: Map[Message, String] = Map(
