@@ -1,6 +1,6 @@
 package container
 
-import structures.Poll
+import structures.{Poll, Question}
 
 class PollMemoryContainer extends PollContainer {
   private var polls = Map.empty[Int, Poll]
@@ -11,9 +11,11 @@ class PollMemoryContainer extends PollContainer {
     case Some(x) => Some(x.updated())
   }
 
-  override def start(key: Int): Unit = modify(key, p => p.start())
+  override def start(key: Int): Unit = modify(key, _.start())
 
-  override def stop(key: Int): Unit = modify(key, p => p.end())
+  override def stop(key: Int): Unit = modify(key, _.end())
+
+  override def addQuestion(key: Int, question: Question): Unit = modify(key, _.add(question))
 
   private def modify(key: Int, f:Poll => Poll): Unit =
     if(polls.get(key).isDefined)
