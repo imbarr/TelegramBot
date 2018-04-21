@@ -7,7 +7,7 @@ import structures.query._
 import scala.util.Try
 import scala.util.parsing.combinator.RegexParsers
 
-class Parser extends RegexParsers{
+class CommandParser extends RegexParsers{
   val dateFormat = new SimpleDateFormat("HH:mm:ss yy:MM:dd")
 
   def arg[T](p: Parser[T]): Parser[T] = "(" ~> p <~ ")"

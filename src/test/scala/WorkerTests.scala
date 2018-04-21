@@ -10,6 +10,7 @@ import structures.Message._
 
 class WorkerTests extends FlatSpec with Matchers{
   val somePoll = Poll("user", "name")
+  val now: Date = Calendar.getInstance().getTime
   val past: Date = Calendar.getInstance().getTime
   past.setYear(past.getYear - 1)
   val future: Date = Calendar.getInstance().getTime
@@ -52,10 +53,10 @@ class WorkerTests extends FlatSpec with Matchers{
     customPollTest(DeletePollQuery, somePoll, PollDeleted, _.isEmpty)
 
   "start_poll" should "work correctly" in
-    customPollTest(StartPollQuery, Poll("u", "n"), PollStarted, _.get.started)
+    customPollTest(StartPollQuery, Poll("u", "n"), PollStarted, _.get.started(now))
 
   "stop_poll" should "work correctly" in
-    customPollTest(StopPollQuery, Poll("u", "n", started = true), PollStopped, _.get.stopped)
+    customPollTest(StopPollQuery, Poll("u", "n", manuallyStarted = true), PollStopped, _.get.stopped(now))
 
   "list" should "view list of polls" in {
     val polls = new PollMemoryContainer()
@@ -68,9 +69,9 @@ class WorkerTests extends FlatSpec with Matchers{
   }
 
   "view_result" should "view poll result" in {
-    val d = init(Poll("u", "n", started=true, isVisible = true))
+    val d = init(Poll("u", "n", manuallyStarted = true, isVisible = true))
     val res = d.w.processQuery("u", Some(ResultQuery(d.id)))
-    assert(isCorrectTypeAnd[ViewResult](res, x => true))
+    assert(isCorrectTypeAnd[ViewResult](res, _ => true))
   }
 
   "NotFound message" should "be returned" in {
@@ -89,28 +90,28 @@ class WorkerTests extends FlatSpec with Matchers{
   }
 
   "start_poll"  should "return AlreadyEnded" in
-    customPollTest(StartPollQuery, Poll("u", "n", stopped =true), AlreadyStopped, _ => true)
+    customPollTest(StartPollQuery, Poll("u", "n", manuallyStopped =true), AlreadyStopped, _ => true)
 
   it should "return AlreadyStarted" in
-    customPollTest(StartPollQuery, Poll("u", "n", started = true), AlreadyStarted, _ => true)
+    customPollTest(StartPollQuery, Poll("u", "n", manuallyStarted = true), AlreadyStarted, _ => true)
 
   it should "return StartedByTimer" in
     customPollTest(StartPollQuery, Poll("u", "n", start_time = Some(future)), StartedByTimer, _ => true)
 
   "stop_poll" should "return AlreadyEnded" in
-    customPollTest(StopPollQuery, Poll("u", "n", stopped = true), AlreadyStopped, _ => true)
+    customPollTest(StopPollQuery, Poll("u", "n", manuallyStopped = true), AlreadyStopped, _ => true)
 
   it should "return NotYetStarted" in
     customPollTest(StopPollQuery, Poll("u", "n"), NotYetStarted, _ => true)
 
   it should "return StoppedByTimer" in
-    customPollTest(StopPollQuery, Poll("u", "n", started = true, stop_time = Some(future)), StoppedByTimer, _ => true)
+    customPollTest(StopPollQuery, Poll("u", "n", manuallyStarted = true, stop_time = Some(future)), StoppedByTimer, _ => true)
 
   "view_result" should "return NotYetStarted" in
     customPollTest(ResultQuery, Poll("u", "n", isVisible = true), NotYetStarted, _ => true)
 
   it should "return IsNotVisible" in
-    customPollTest(ResultQuery, Poll("u", "n", started = true), IsNotVisible, _ => true)
+    customPollTest(ResultQuery, Poll("u", "n", manuallyStarted = true), IsNotVisible, _ => true)
 
   "None" should "return NotRecognized" in {
     val w = new Worker(new PollMemoryContainer())

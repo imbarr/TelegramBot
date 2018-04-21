@@ -4,7 +4,7 @@ import scala.io.Source
 
 object Main{
   def main(args: Array[String]): Unit = {
-    val parser = new Parser()
+    val parser = new CommandParser()
     val polls = new PollMemoryContainer()
     val worker = new Worker(polls)
     val printer = new Printer()

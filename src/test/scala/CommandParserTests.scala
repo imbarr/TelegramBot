@@ -1,8 +1,8 @@
 import org.scalatest._
 import structures.query._
 
-class ParserTests extends FlatSpec with Matchers {
-  val p = new Parser()
+class CommandParserTests extends FlatSpec with Matchers {
+  val p = new CommandParser()
 
   def assertNotParsed(s: String): Unit = assert(p.getQuery(s).isEmpty)
   def assertNotParsed(strings: String*): Unit = for(el <- strings) assertNotParsed(el)

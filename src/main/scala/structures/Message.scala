@@ -6,6 +6,6 @@ object Message extends Enumeration {
   AlreadyStarted, AlreadyStopped, NotYetEnded, NotYetStarted,
   StartedByTimer, StoppedByTimer, NotFound, IsNotVisible, NotRecognized,
   Begin, End, AlreadyInContext, NotInContext, NoOptions, NoOptionsExpected,
-  QuestionNotFound, QuestionDeleted, Answered,
-  MustBeDigit, MustBeDigits = Value
+  QuestionNotFound, QuestionDeleted, Answered, WrongAnswerFormat,
+  AlreadyAnswered = Value
 }

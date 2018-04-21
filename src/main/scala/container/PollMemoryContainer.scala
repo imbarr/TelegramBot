@@ -1,34 +1,18 @@
 package container
 
-import structures.{Poll, Question}
+import structures.Poll
 
 class PollMemoryContainer extends PollContainer {
   private var polls = Map.empty[Int, Poll]
+  private var id = -1
 
-  override def get(key: Int): Option[Poll] = polls.get(key) match {
-    case None => None
-    case Some(x) => Some(x.updated())
-  }
+  override def get(key: Int): Option[Poll] = polls.get(key)
 
-  override def start(key: Int): Unit = modify(key, _.start())
-
-  override def stop(key: Int): Unit = modify(key, _.end())
-
-  override def addQuestion(key: Int, question: Question): Option[Int] =
-    polls.get(key) match {
-      case None => None
-      case Some(poll) =>
-        val pair = poll.add(question)
-        polls += (key -> pair._1)
-        Some(pair._2)
-    }
-
-  private def modify(key: Int, f:Poll => Poll): Unit =
-    if(polls.get(key).isDefined)
-      polls += (key -> f(polls(key)))
+  override def set(key: Int, poll: Poll): Unit =
+    polls += (key -> poll)
 
   override def add(value: Poll): Int = {
-    val id = polls.keys.max + 1
+    id += 1
     polls += (id -> value)
     id
   }
