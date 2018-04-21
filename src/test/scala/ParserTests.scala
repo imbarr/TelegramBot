@@ -32,7 +32,7 @@ class ParserTests extends FlatSpec with Matchers {
       "(((name))", "(n) (some)", "(n) (continuous)", "(n) (no) (g)", "(n) (no) (afterstop) (time) (time)")
 
   it should "parse list command" in assert(p.getQuery("/list").getOrElse() match{
-    case x: ViewListQuery => true
+    case x: ListQuery => true
     case _ => false
   })
 
@@ -40,7 +40,7 @@ class ParserTests extends FlatSpec with Matchers {
       "/delete_poll (99999)" -> DeletePollQuery(99999),
       "/start_poll (0)" -> StartPollQuery(0),
       "/stop_poll (10)" -> StopPollQuery(10),
-      "/result (0)" -> ViewResultQuery(0))
+      "/result (0)" -> ResultQuery(0))
 
   it should "not parse invalid poll commands" in {
     val cmds: List[String] = List("/delete_poll", "/start_poll", "/stop_poll", "/result")

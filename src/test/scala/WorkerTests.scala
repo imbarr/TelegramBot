@@ -4,7 +4,7 @@ import container.PollMemoryContainer
 import org.scalatest._
 import structures.Poll
 import structures.query._
-import structures.query.ViewListQuery
+import structures.query.ListQuery
 import structures.result._
 import structures.Message._
 
@@ -63,18 +63,18 @@ class WorkerTests extends FlatSpec with Matchers{
     polls.add(somePoll)
     val w = new Worker(polls)
 
-    val res = w.processQuery("u", Some(new ViewListQuery()))
+    val res = w.processQuery("u", Some(new ListQuery()))
     assert(isCorrectTypeAnd[ViewList](res, x => x.polls.lengthCompare(2) == 0))
   }
 
   "view_result" should "view poll result" in {
     val d = init(Poll("u", "n", started=true, isVisible = true))
-    val res = d.w.processQuery("u", Some(ViewResultQuery(d.id)))
+    val res = d.w.processQuery("u", Some(ResultQuery(d.id)))
     assert(isCorrectTypeAnd[ViewResult](res, x => true))
   }
 
   "NotFound message" should "be returned" in {
-    val queries = List[Query](DeletePollQuery(0), StartPollQuery(0), StopPollQuery(0), ViewResultQuery(0))
+    val queries = List[Query](DeletePollQuery(0), StartPollQuery(0), StopPollQuery(0), ResultQuery(0))
     val polls = new PollMemoryContainer()
     val w = new Worker(polls)
     for(q <- queries)
@@ -107,10 +107,10 @@ class WorkerTests extends FlatSpec with Matchers{
     customPollTest(StopPollQuery, Poll("u", "n", started = true, stop_time = Some(future)), StoppedByTimer, _ => true)
 
   "view_result" should "return NotYetStarted" in
-    customPollTest(ViewResultQuery, Poll("u", "n", isVisible = true), NotYetStarted, _ => true)
+    customPollTest(ResultQuery, Poll("u", "n", isVisible = true), NotYetStarted, _ => true)
 
   it should "return IsNotVisible" in
-    customPollTest(ViewResultQuery, Poll("u", "n", started = true), IsNotVisible, _ => true)
+    customPollTest(ResultQuery, Poll("u", "n", started = true), IsNotVisible, _ => true)
 
   "None" should "return NotRecognized" in {
     val w = new Worker(new PollMemoryContainer())

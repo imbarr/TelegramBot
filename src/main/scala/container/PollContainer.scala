@@ -10,7 +10,7 @@ trait PollContainer {
 
   def start(key: Int): Unit
   def stop(key: Int): Unit
-  def addQuestion(key: Int, question: Question): Unit
+  def addQuestion(key: Int, question: Question): Option[Int]
 }
 
 

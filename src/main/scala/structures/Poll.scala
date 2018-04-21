@@ -4,7 +4,7 @@ import java.util.{Calendar, Date}
 
 case class Poll(user: String, name: String, isAnon: Boolean = true, isVisible: Boolean = false,
                 start_time: Option[Date] = None, stop_time: Option[Date] = None,
-                questions: List[Question] = List(), started: Boolean = false, stopped: Boolean = false) {
+                questions: Map[Int, Question] = Map(), started: Boolean = false, stopped: Boolean = false) {
 
   def updated(): Poll = {
     val now = Calendar.getInstance().getTime
@@ -17,6 +17,9 @@ case class Poll(user: String, name: String, isAnon: Boolean = true, isVisible: B
 
   def end(): Poll = Poll(user, name, isAnon, isVisible, start_time, stop_time, questions, stopped = true)
 
-  def add(question: Question): Poll =
-    Poll(user, name, isAnon, isVisible, start_time, stop_time, questions :+ question, started, stopped)
+  def add(question: Question): (Poll, Int) = {
+    val id = questions.keys.max + 1
+    (Poll(user, name, isAnon, isVisible, start_time,
+      stop_time, questions + (id -> question), started, stopped), id)
+  }
 }
