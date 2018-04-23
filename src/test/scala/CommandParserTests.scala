@@ -1,13 +1,21 @@
 import org.scalatest._
 import structures.query._
+import structures.result.{MsgResult, ParseFailureResult}
+import structures.Message.CommandNotFound
 
 class CommandParserTests extends FlatSpec with Matchers {
   val p = new CommandParser()
 
-  def assertNotParsed(s: String): Unit = assert(p.getQuery(s).isEmpty)
-  def assertNotParsed(strings: String*): Unit = for(el <- strings) assertNotParsed(el)
+  def isInstance[T](x: Any): Boolean = x match {
+    case _: T => true
+    case _ => false
+  }
 
-  def assertParsed(cmd: String, q: Query): Unit = assert(p.getQuery(cmd).contains(q))
+  def assertWrongFormat(s: String): Assertion = assert(isInstance[ParseFailureResult](p.parse(s).left))
+
+  def assertWrongFormat(strings: Seq[String]): Unit = for(el <- strings) assertWrongFormat(el)
+
+  def assertParsed(cmd: String, q: Query): Assertion = assert(p.parse(cmd).contains(q))
   def assertParsed(pairs: (String, Query)*): Unit =
     for(el <- pairs) assertParsed(el._1, el._2)
 
@@ -28,13 +36,11 @@ class CommandParserTests extends FlatSpec with Matchers {
           Some(p.dateFormat.parse(start)), Some(p.dateFormat.parse(end))))
   }
 
-  it should "not parse invalid create_poll commands" in assertNotParsed(
-      "(((name))", "(n) (some)", "(n) (continuous)", "(n) (no) (g)", "(n) (no) (afterstop) (time) (time)")
+  it should "not parse invalid create_poll commands" in assertWrongFormat(List(
+    "(((name))", "(n) (some)", "(n) (continuous)",
+    "(n) (no) (g)", "(n) (no) (afterstop) (time) (time)").map("/create_poll " + _))
 
-  it should "parse list command" in assert(p.getQuery("/list").getOrElse() match{
-    case x: ListQuery => true
-    case _ => false
-  })
+  it should "parse list command" in isInstance[ListQuery](p.parse("/list"))
 
   it should "parse other correct poll commands" in assertParsed(
       "/delete_poll (99999)" -> DeletePollQuery(99999),
@@ -48,10 +54,11 @@ class CommandParserTests extends FlatSpec with Matchers {
     for{
       c <- cmds
       a <- args
-    } assertNotParsed(c + " " + a)
+    } assertWrongFormat(c + " " + a)
   }
 
-  it should "not parse unrecognized commands" in assertNotParsed("/some_not_implemented_command")
+  it should "not parse unrecognized commands" in
+    assert(p.parse("/some_not_implemented_command").left.exists(_ == MsgResult(CommandNotFound)))
 
-  it should "not parse not command strings" in assertNotParsed("result")
+  it should "not parse not command strings" in assertWrongFormat("result")
 }

@@ -1,6 +1,6 @@
 package container
 
-import structures.{Poll, Question}
+import structures.Poll
 
 trait PollContainer {
   def get(key: Int): Option[Poll]

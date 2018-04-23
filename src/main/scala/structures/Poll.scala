@@ -2,6 +2,8 @@ package structures
 
 import java.util.{Calendar, Date}
 
+import structures.question.Question
+
 case class Poll(user: String, name: String, isAnon: Boolean = true, isVisible: Boolean = false,
                 start_time: Option[Date] = None, stop_time: Option[Date] = None,
                 questions: List[Question] = Nil, manuallyStarted: Boolean = false,

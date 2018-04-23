@@ -25,7 +25,7 @@ class WorkerTests extends FlatSpec with Matchers{
     isCorrectTypeAnd[MsgResult](instance, x => x.msg == msg)
 
   def processAndAssertMsg(w: Worker, q: Query, msg: Message): Assertion = {
-    val res = w.processQuery("user", Some(q))
+    val res = w.processQuery("user", q)
     assert(isCorrectMsg(res, msg))
   }
 
@@ -36,16 +36,16 @@ class WorkerTests extends FlatSpec with Matchers{
     Data(polls, polls.add(poll), new Worker(polls))
   }
 
-  "Worker" should "create poll correctly" in {
+  "create_poll" should "work correctly" in {
     val polls = new PollMemoryContainer()
     val w = new Worker(polls)
-    val res = w.processQuery("u", Some(CreatePollQuery("n")))
+    val res = w.processQuery("u", CreatePollQuery("n"))
     assert(isCorrectTypeAnd[PollCreated](res, x => polls.get(x.pollId).contains(Poll("u", "n"))))
   }
 
   def customPollTest(f: Int => QueryWithId, poll: Poll, msg: Message, predicate: Option[Poll] => Boolean): Assertion = {
     val d = init(poll)
-    val res = d.w.processQuery(poll.user, Some(f(d.id)))
+    val res = d.w.processQuery(poll.user, f(d.id))
     assert(isCorrectMsg(res, msg) && predicate(d.polls.get(d.id)))
   }
 
@@ -64,13 +64,13 @@ class WorkerTests extends FlatSpec with Matchers{
     polls.add(somePoll)
     val w = new Worker(polls)
 
-    val res = w.processQuery("u", Some(new ListQuery()))
+    val res = w.processQuery("u", new ListQuery())
     assert(isCorrectTypeAnd[ViewList](res, x => x.polls.lengthCompare(2) == 0))
   }
 
   "view_result" should "view poll result" in {
     val d = init(Poll("u", "n", manuallyStarted = true, isVisible = true))
-    val res = d.w.processQuery("u", Some(ResultQuery(d.id)))
+    val res = d.w.processQuery("u", ResultQuery(d.id))
     assert(isCorrectTypeAnd[ViewResult](res, _ => true))
   }
 
@@ -105,16 +105,12 @@ class WorkerTests extends FlatSpec with Matchers{
     customPollTest(StopPollQuery, Poll("u", "n"), NotYetStarted, _ => true)
 
   it should "return StoppedByTimer" in
-    customPollTest(StopPollQuery, Poll("u", "n", manuallyStarted = true, stop_time = Some(future)), StoppedByTimer, _ => true)
+    customPollTest(StopPollQuery,
+      Poll("u", "n", manuallyStarted = true, stop_time = Some(future)), StoppedByTimer, _ => true)
 
   "view_result" should "return NotYetStarted" in
     customPollTest(ResultQuery, Poll("u", "n", isVisible = true), NotYetStarted, _ => true)
 
   it should "return IsNotVisible" in
     customPollTest(ResultQuery, Poll("u", "n", manuallyStarted = true), IsNotVisible, _ => true)
-
-  "None" should "return NotRecognized" in {
-    val w = new Worker(new PollMemoryContainer())
-    assert(isCorrectMsg(w.processQuery("u", None), NotRecognized))
-  }
 }

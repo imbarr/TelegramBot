@@ -5,6 +5,6 @@ class PrinterTests extends FlatSpec with Matchers{
   "Printer" should "support all messages" in {
     val p = new Printer()
     for (m <- Message.values)
-      assert(p.get(m).isDefined)
+      p.get(m)
   }
 }

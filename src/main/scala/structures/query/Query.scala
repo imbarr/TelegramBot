@@ -4,8 +4,14 @@ import java.util.Date
 
 import structures.QuestionType.QuestionType
 
+import scala.util.parsing.combinator
+
 
 sealed trait Query
+
+//class CommandNotFoundQuery extends Query
+
+//case class ParseFailureQuery(msg: String, column: Int) extends Query
 
 case class CreatePollQuery(name: String, isAnon: Option[Boolean] = None, isVisible: Option[Boolean] = None,
                       startTime: Option[Date] = None, stopTime: Option[Date] = None) extends Query

@@ -5,6 +5,7 @@ import structures.query._
 import structures.Message._
 import structures.QuestionType._
 import structures._
+import structures.question.{ChoiceQuestion, MultipleQuestion, OpenQuestion, Question}
 import structures.result._
 
 import scala.util.parsing.combinator.RegexParsers
@@ -14,16 +15,19 @@ class Worker(polls: PollContainer) extends  RegexParsers{
 
   private def now: Date = Calendar.getInstance().getTime
 
-  def processQuery(user: String, query: Option[Query]): Result = query match {
-    case Some(q) => q match {
-      case x: CreatePollQuery => createPoll(user, x)
-      case x: ListQuery => viewList(user, x)
-      case x: DeletePollQuery => deletePoll(user, x)
-      case x: StartPollQuery => startPoll(user, x)
-      case x: StopPollQuery => stopPoll(user, x)
-      case x: ResultQuery => viewResult(user, x)
-    }
-    case None => NotRecognized
+  def processQuery(user: String, query: Query): Result = query match {
+    case x: CreatePollQuery => createPoll(user, x)
+    case x: ListQuery => viewList(user, x)
+    case x: DeletePollQuery => deletePoll(user, x)
+    case x: StartPollQuery => startPoll(user, x)
+    case x: StopPollQuery => stopPoll(user, x)
+    case x: ResultQuery => viewResult(user, x)
+    case x: ViewQuery => view(user, x)
+    case x: EndQuery => end(user, x)
+    case x: BeginQuery => begin(user, x)
+    case x: AddQuestionQuery => addQuestion(user, x)
+    case x: DeleteQuestionQuery => deleteQuestion(user, x)
+    case x: AnswerQuestionQuery => answerQuestion(user, x)
   }
 
   def createPoll(user: String, q: CreatePollQuery): Result = {
@@ -130,9 +134,9 @@ class Worker(polls: PollContainer) extends  RegexParsers{
         else addQuestionTo(id, poll, OpenQuestion(q.question))
       })
 
-  private def addQuestionTo(id: Int, poll: Poll, q: Question): QuestionCreated = {
+  private def addQuestionTo(id: Int, poll: Poll, q: Question): QuestionAdded = {
     polls.set(id, poll.add(q))
-    QuestionCreated(poll.questions.length + 1)
+    QuestionAdded(poll.questions.length + 1)
   }
 
   def deleteQuestion(user: String, q: DeleteQuestionQuery): Result =
