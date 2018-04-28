@@ -8,5 +8,5 @@ object Message extends Enumeration {
   StartedByTimer, StoppedByTimer, NotFound, IsNotVisible,
   Begin, End, AlreadyInContext, NotInContext, NoOptions, NoOptionsExpected,
   QuestionNotFound, QuestionDeleted, Answered, WrongAnswerFormat,
-  AlreadyAnswered, CommandNotFound = Value
+  AlreadyAnswered, CommandNotFound, OutOfRange, MustBeDifferent = Value
 }

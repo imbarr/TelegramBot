@@ -1,20 +1,40 @@
-/create_poll (gsgs (( oo))))) (no)
+user:/create_poll (Poll name) (no) (continuous)
 
-/begin (0)
+user:/begin (0)
 
-/add_question (choice)
+user1:/begin (0)
+
+user:/add_question (First) (choice)
 1
 2
 3
 
-/answer (0) 4
+user:/add_question (Second) (multi)
+a
+b
+c
+d
+e
+f
 
-/answer (0) (4)
+user:/add_question (Third) (open)
 
-/answer (0) (3)
+user:/answer (0) (3)
 
-/end
+user1:/answer (0) (2)
 
-/list
+user:/answer (1) (1 2 6)
 
-/fgdfghs
+user1:/answer (1) (1 3 4 6)
+
+user:/answer (2) (adadadad)
+
+user1:/answer (2) (sssssss)
+
+user:/start_poll (0)
+
+user:/view
+
+user:/result (0)
+
+user:/end

@@ -8,11 +8,11 @@ import structures._
 import structures.question.{ChoiceQuestion, MultipleQuestion, OpenQuestion, Question}
 import structures.result._
 
+import scala.util.Try
 import scala.util.parsing.combinator.RegexParsers
 
-class Worker(polls: PollContainer, var currentPoll: Option[Int] = None) extends  RegexParsers{
+class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) extends  RegexParsers{
   private def now: Date = Calendar.getInstance().getTime
-  //TODO
 
   def processQuery(user: String, query: Query): Result = query match {
     case x: CreatePollQuery => createPoll(user, x)
@@ -20,7 +20,7 @@ class Worker(polls: PollContainer, var currentPoll: Option[Int] = None) extends 
     case x: DeletePollQuery => deletePoll(user, x)
     case x: StartPollQuery => startPoll(user, x)
     case x: StopPollQuery => stopPoll(user, x)
-    case x: ResultQuery => viewResult(user, x)
+    case x: ViewResultQuery => viewResult(user, x)
     case x: ViewQuery => view(user, x)
     case x: EndQuery => end(user, x)
     case x: BeginQuery => begin(user, x)
@@ -37,8 +37,8 @@ class Worker(polls: PollContainer, var currentPoll: Option[Int] = None) extends 
 
   def viewList(user: String, q: ListQuery): Result = ViewList(polls.toList)
 
-  private def wrapContext(q: Query, f: (Int, Poll) => Result): Result = {
-    currentPoll match {
+  private def wrapContext(user: String, q: Query, f: (Int, Poll) => Result): Result = {
+    currentPoll.get(user) match {
       case None => NotInContext
       case Some(id) => polls.get(id) match{
         case None => NotFound
@@ -66,7 +66,7 @@ class Worker(polls: PollContainer, var currentPoll: Option[Int] = None) extends 
     wrapNotFound(q, (id, poll) => wrapNoRights(user, id, poll, f))
 
   private def wrapContextAndNoRights(user: String, q: Query, f: (Int, Poll) => Result): Result =
-    wrapContext(q, (id, poll) => wrapNoRights(user, id, poll, f))
+    wrapContext(user, q, (id, poll) => wrapNoRights(user, id, poll, f))
 
   def deletePoll(user: String, q: DeletePollQuery): Result =
     wrapNotFoundAndNoRights(user, q, (id, _) => {
@@ -96,7 +96,7 @@ class Worker(polls: PollContainer, var currentPoll: Option[Int] = None) extends 
       }
     })
 
-  def viewResult(user: String, q: ResultQuery): Result =
+  def viewResult(user: String, q: ViewResultQuery): Result =
     wrapNotFound(q, (_, poll) => {
       if (!poll.started(now)) NotYetStarted
       else if (!poll.stopped(now) && !poll.isVisible) IsNotVisible
@@ -104,33 +104,33 @@ class Worker(polls: PollContainer, var currentPoll: Option[Int] = None) extends 
     })
 
   def begin(user: String, q: BeginQuery): Result =
-    if (currentPoll.isDefined) AlreadyInContext
+    if (currentPoll.get(user).isDefined) AlreadyInContext
     else wrapNotFound(q, (id, _) => {
-      currentPoll = Some(id)
+      currentPoll += (user -> id)
       Begin
     })
 
   def end(user: String, q: EndQuery): Result =
-    if (currentPoll.isEmpty) NotInContext
+    if (currentPoll.get(user).isEmpty) NotInContext
     else {
-      currentPoll = None
+      currentPoll -= user
       End
     }
 
   def view(user: String, q: ViewQuery): Result =
-    wrapContext(q, (_, poll) => ViewResult(poll))
+    wrapContext(user, q, (_, poll) => View(poll))
 
   def addQuestion(user: String, q: AddQuestionQuery): Result =
     wrapContextAndNoRights(user, q, (id, poll) => q.questionType.getOrElse(Choice) match {
       case Choice =>
         if(q.options.isEmpty) NoOptions
-        else addQuestionTo(id, poll, ChoiceQuestion(q.question, q.options))
+        else addQuestionTo(id, poll, ChoiceQuestion(q.question, q.options, poll.isAnon))
       case Multiple =>
         if(q.options.isEmpty) NoOptions
-        else addQuestionTo(id, poll, MultipleQuestion(q.question, q.options))
+        else addQuestionTo(id, poll, MultipleQuestion(q.question, q.options, poll.isAnon))
       case Open =>
         if(q.options.nonEmpty) NoOptionsExpected
-        else addQuestionTo(id, poll, OpenQuestion(q.question))
+        else addQuestionTo(id, poll, OpenQuestion(q.question, poll.isAnon))
       })
 
   private def addQuestionTo(id: Int, poll: Poll, q: Question): QuestionAdded = {
@@ -145,19 +145,42 @@ class Worker(polls: PollContainer, var currentPoll: Option[Int] = None) extends 
           QuestionDeleted
       }))
 
-  def choiceAnswer: Parser[Int] = "[0-9]+".r ^^ (_.toInt)
-
-  def multipleAnswer: Parser[List[Int]] = "([0-9] )*[0-9]".r ^^ (s => s.split(" ").map(_.toInt).toList) ^?
-    {case x if x.lengthCompare(x.distinct.length) == 0 => x}
-
   def answerQuestion(user: String, q: AnswerQuestionQuery): Result =
-    wrapContext(q, (id, poll) =>
+    wrapContext(user,  q, (id, poll) =>
       wrapQuestionNotFound(poll, q, (questionId, question) =>
         if(question.voted.contains(user)) AlreadyAnswered
-        else question.addAnswer(user, q.answer, poll.isAnon) match{
-          case Some(x) =>
-            polls.set(id, poll.set(questionId, x))
-            Answered
-          case None => WrongAnswerFormat
-        }))
+        else{
+          def setter(newQuestion: Question): Unit = polls.set(id, poll.set(questionId, newQuestion))
+          question match{
+          case x: ChoiceQuestion => answerChoiceQuestion(user, q.answer, x, setter)
+          case x: MultipleQuestion => answerMultipleQuestion(user, q.answer, x, setter)
+          case x: OpenQuestion =>
+              setter(x.answer(user, q.answer))
+              Answered
+        }}))
+
+  private def answerChoiceQuestion(user: String, answer: String, q: ChoiceQuestion,
+                                   f: ChoiceQuestion => Unit): Result =
+    Try(answer.toInt - 1).toOption match{
+      case Some(x) =>
+        if(q.options.isDefinedAt(x)){
+          f(q.answer(user, x))
+          Answered
+        }
+        else OutOfRange
+      case None => WrongAnswerFormat
+    }
+
+  private def answerMultipleQuestion(user: String, answer: String, q: MultipleQuestion,
+                                     f: MultipleQuestion => Unit): Result =
+    Try(answer.split(' ').map(_.toInt - 1)).toOption match{
+      case Some(list) =>
+        if(list.distinct.lengthCompare(list.length) != 0) MustBeDifferent
+        else if(!list.forall(q.options.isDefinedAt)) OutOfRange
+        else{
+          f(q.answer(user, list.toList))
+          Answered
+        }
+      case None => WrongAnswerFormat
+    }
 }

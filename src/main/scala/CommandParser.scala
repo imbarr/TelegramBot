@@ -36,7 +36,7 @@ class CommandParser extends RegexParsers {
   val date: Parser[Date] = "[^()]*".r ^? { case x if toDate(x).isDefined => toDate(x).get }
   val questionType: Parser[QuestionType] =
     "open" ^^ (_ => Open) | "choice" ^^ (_ => Choice) | "multi" ^^ (_ => Multiple)
-  val lines: Parser[List[String]] = "(?s).*".r ^^ (o => o.split("\n").filter(_.nonEmpty).toList)
+  val lines: Parser[List[String]] = "(?s).*".r ^^ (o => o.split("\n|\r").filter(_.nonEmpty).toList)
 
   val parsers: Map[String, Parser[Query]] = Map(
     "/create_poll" ->
@@ -47,7 +47,7 @@ class CommandParser extends RegexParsers {
     "/delete_poll" -> id(DeletePollQuery),
     "/start_poll" -> id(StartPollQuery),
     "/stop_poll" -> id(StopPollQuery),
-    "/result" -> id(ResultQuery),
+    "/result" -> id(ViewResultQuery),
     "/begin" -> id(BeginQuery),
     "/end" -> ("""$""".r ^^ (_ => new EndQuery())),
     "/view" -> ("""$""".r ^^ (_ => new ViewQuery())),
@@ -60,8 +60,8 @@ class CommandParser extends RegexParsers {
       (arg(int) ~ arg(string) ^^ (p => AnswerQuestionQuery(p._1, p._2))))
 
   def parse(s: String): Either[Result, Query] = parsers.get(s.split(" ")(0)) match {
-    case Some(p) => parse(p, s.split(" ").drop(1).mkString(" ")) match {
-      case Success(q, _) => Right(q)
+    case Some(p) => parse(p ~ """$""".r, s.split(" ").drop(1).mkString(" ")) match {
+      case Success(q, _) => Right(q._1)
       case NoSuccess(msg, x) => Left(ParseFailureResult(msg, x.pos.column))
     }
     case None => Left(CommandNotFound)

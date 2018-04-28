@@ -9,10 +9,6 @@ import scala.util.parsing.combinator
 
 sealed trait Query
 
-//class CommandNotFoundQuery extends Query
-
-//case class ParseFailureQuery(msg: String, column: Int) extends Query
-
 case class CreatePollQuery(name: String, isAnon: Option[Boolean] = None, isVisible: Option[Boolean] = None,
                       startTime: Option[Date] = None, stopTime: Option[Date] = None) extends Query
 
@@ -30,7 +26,7 @@ case class StartPollQuery(override val id: Int) extends QueryWithId(id)
 
 case class StopPollQuery(override val id: Int) extends QueryWithId(id)
 
-case class ResultQuery(override val id: Int) extends QueryWithId(id)
+case class ViewResultQuery(override val id: Int) extends QueryWithId(id)
 
 case class BeginQuery(override val id: Int) extends QueryWithId(id)
 

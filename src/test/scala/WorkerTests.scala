@@ -14,7 +14,8 @@ import structures.question.{ChoiceQuestion, MultipleQuestion, OpenQuestion, Ques
 import scala.reflect.ClassTag
 
 class WorkerTests extends FlatSpec with Matchers{
-  val somePoll = Poll("user", "name")
+  val baseUser = "user"
+  val basePoll = Poll(baseUser, "name")
   val now: Date = Calendar.getInstance().getTime
   val past: Date = Calendar.getInstance().getTime
   past.setYear(past.getYear - 1)
@@ -31,7 +32,7 @@ class WorkerTests extends FlatSpec with Matchers{
     isCorrectTypeAnd[MsgResult](instance, x => x.msg == msg)
 
   def processAndAssertMsg(w: Worker, q: Query, msg: Message): Assertion = {
-    val res = w.processQuery("user", q)
+    val res = w.processQuery(baseUser, q)
     assert(isCorrectMsg(res, msg))
   }
 
@@ -44,15 +45,16 @@ class WorkerTests extends FlatSpec with Matchers{
 
   def initContext(poll: Poll): Data = {
     val d = init(poll)
-    d.w.currentPoll = Some(d.id)
+    d.w.currentPoll += (poll.user -> d.id)
     d
   }
 
   "create_poll" should "work correctly" in {
     val polls = new PollMemoryContainer()
     val w = new Worker(polls)
-    val res = w.processQuery("u", CreatePollQuery("n"))
-    assert(isCorrectTypeAnd[PollCreated](res, x => polls.get(x.pollId).contains(Poll("u", "n"))))
+    val res = w.processQuery(baseUser, CreatePollQuery("n", Some(true), Some(false)))
+    assert(isCorrectTypeAnd[PollCreated](res, x =>
+      polls.get(x.pollId).contains(Poll(baseUser, "n", true, false))))
   }
 
   def customPollTest(f: Int => QueryWithId, poll: Poll, msg: Message,
@@ -64,41 +66,41 @@ class WorkerTests extends FlatSpec with Matchers{
 
   def customQuestionTest(f: Int => QueryWithQuestionId, question: Question, msg: Message,
                          predicate: Option[Question] => Boolean): Assertion ={
-    val p = Poll("u", "n")
+    val p = basePoll.copy(isAnon = false)
     val d = initContext(p)
     d.polls.set(d.id, p.add(question))
-    val res = d.w.processQuery("u", f(0))
+    val res = d.w.processQuery(baseUser, f(0))
     assert(isCorrectMsg(res, msg) && predicate(d.polls.get(d.id).get.get(0)))
   }
 
   "delete_poll" should "work correctly" in
-    customPollTest(DeletePollQuery, somePoll, PollDeleted, _.isEmpty)
+    customPollTest(DeletePollQuery, basePoll, PollDeleted, _.isEmpty)
 
   "start_poll" should "work correctly" in
-    customPollTest(StartPollQuery, Poll("u", "n"), PollStarted, _.get.started(now))
+    customPollTest(StartPollQuery, basePoll, PollStarted, _.get.started(now))
 
   "stop_poll" should "work correctly" in
-    customPollTest(StopPollQuery, Poll("u", "n", manuallyStarted = true), PollStopped, _.get.stopped(now))
+    customPollTest(StopPollQuery, basePoll.copy(manuallyStarted = true), PollStopped, _.get.stopped(now))
 
   "list" should "view list of polls" in {
     val polls = new PollMemoryContainer()
-    polls.add(somePoll)
-    polls.add(somePoll)
+    polls.add(basePoll)
+    polls.add(basePoll)
     val w = new Worker(polls)
 
-    val res = w.processQuery("u", new ListQuery())
+    val res = w.processQuery(baseUser, new ListQuery())
     assert(isCorrectTypeAnd[ViewList](res, x => x.polls.lengthCompare(2) == 0))
   }
 
   "view_result" should "view poll result" in {
-    val d = init(Poll("u", "n", manuallyStarted = true, isVisible = true))
-    val res = d.w.processQuery("u", ResultQuery(d.id))
+    val d = init(basePoll.copy(manuallyStarted = true, isVisible = true))
+    val res = d.w.processQuery(baseUser, ViewResultQuery(d.id))
     assert(isCorrectTypeAnd[ViewResult](res, _ => true))
   }
 
   "NotFound message" should "be returned" in {
     val queries = List[Query](DeletePollQuery(0), StartPollQuery(0), StopPollQuery(0),
-      ResultQuery(0), BeginQuery(0))
+      ViewResultQuery(0), BeginQuery(0))
     val polls = new PollMemoryContainer()
     val w = new Worker(polls)
     for(q <- queries)
@@ -109,13 +111,14 @@ class WorkerTests extends FlatSpec with Matchers{
     val queries = List[Query](new ViewQuery(), AddQuestionQuery("a"),
       DeleteQuestionQuery(0), AnswerQuestionQuery(0, "a"))
     val polls = new PollMemoryContainer()
-    val w = new Worker(polls, Some(0))
+    val w = new Worker(polls, Map(baseUser -> 0))
     for(q <- queries)
       processAndAssertMsg(w, q, NotFound)
   }
 
   "NoRights message" should "be returned" in {
-    val d = initContext(Poll("admin", "n"))
+    val d = initContext(Poll("admin", "name"))
+    d.w.currentPoll += (baseUser -> d.id)
     val queries = List[Query](DeletePollQuery(d.id), StartPollQuery(d.id), StopPollQuery(d.id),
       AddQuestionQuery("a"))
     for(q <- queries)
@@ -123,43 +126,43 @@ class WorkerTests extends FlatSpec with Matchers{
   }
 
   "start_poll"  should "return AlreadyEnded" in
-    customPollTest(StartPollQuery, Poll("u", "n", manuallyStopped =true), AlreadyStopped, _ => true)
+    customPollTest(StartPollQuery, basePoll.copy(manuallyStopped =true), AlreadyStopped, _ => true)
 
   it should "return AlreadyStarted" in
-    customPollTest(StartPollQuery, Poll("u", "n", manuallyStarted = true), AlreadyStarted, _ => true)
+    customPollTest(StartPollQuery, basePoll.copy(manuallyStarted = true), AlreadyStarted, _ => true)
 
   it should "return StartedByTimer" in
-    customPollTest(StartPollQuery, Poll("u", "n", start_time = Some(future)), StartedByTimer, _ => true)
+    customPollTest(StartPollQuery, basePoll.copy(start_time = Some(future)), StartedByTimer, _ => true)
 
   "stop_poll" should "return AlreadyEnded" in
-    customPollTest(StopPollQuery, Poll("u", "n", manuallyStopped = true), AlreadyStopped, _ => true)
+    customPollTest(StopPollQuery, basePoll.copy(manuallyStopped = true), AlreadyStopped, _ => true)
 
   it should "return NotYetStarted" in
-    customPollTest(StopPollQuery, Poll("u", "n"), NotYetStarted, _ => true)
+    customPollTest(StopPollQuery, basePoll, NotYetStarted, _ => true)
 
   it should "return StoppedByTimer" in
     customPollTest(StopPollQuery,
-      Poll("u", "n", manuallyStarted = true, stop_time = Some(future)), StoppedByTimer, _ => true)
+      basePoll.copy(manuallyStarted = true, stop_time = Some(future)), StoppedByTimer, _ => true)
 
   "view_result" should "return NotYetStarted" in
-    customPollTest(ResultQuery, Poll("u", "n", isVisible = true), NotYetStarted, _ => true)
+    customPollTest(ViewResultQuery, basePoll.copy(isVisible = true), NotYetStarted, _ => true)
 
   it should "return IsNotVisible" in
-    customPollTest(ResultQuery, Poll("u", "n", manuallyStarted = true), IsNotVisible, _ => true)
+    customPollTest(ViewResultQuery, basePoll.copy(isVisible = false, manuallyStarted = true), IsNotVisible, _ => true)
 
   "begin" should "work correctly" in{
-    val d = init(Poll("u", "n"))
+    val d = init(basePoll)
     processAndAssertMsg(d.w, BeginQuery(d.id), Begin)
-    assert(d.w.currentPoll.contains(d.id))
+    assert(d.w.currentPoll(baseUser) == d.id)
   }
 
   it should "return AlreadyInContext" in{
-    val d = initContext(Poll("u", "n"))
+    val d = initContext(basePoll)
     processAndAssertMsg(d.w, BeginQuery(d.id), AlreadyInContext)
   }
 
   "NotInContext message" should "be returned" in{
-    val d = init(Poll("user", "n"))
+    val d = init(basePoll)
     val queries = List[Query](new EndQuery(), new ViewQuery(),
       AddQuestionQuery("a"), DeleteQuestionQuery(0), AnswerQuestionQuery(0, "a"))
     for(q <- queries)
@@ -167,36 +170,36 @@ class WorkerTests extends FlatSpec with Matchers{
   }
 
   "end" should "work correctly" in{
-    val d = initContext(Poll("u", "n"))
+    val d = initContext(basePoll)
     processAndAssertMsg(d.w, new EndQuery(), End)
     assert(d.w.currentPoll.isEmpty)
   }
 
   "view" should "work correctly" in{
-    val d = initContext(Poll("u", "n"))
-    val res = d.w.processQuery("user", new ViewQuery())
-    assert(isCorrectTypeAnd[ViewResult](res, _.poll == Poll("u", "n")))
+    val d = initContext(basePoll)
+    val res = d.w.processQuery(baseUser, new ViewQuery())
+    assert(isCorrectTypeAnd[View](res, _.poll == basePoll))
   }
 
   def customAddQuestionTest(name: String, qtype: Option[QuestionType], options: List[String],
                             f: (String, List[String]) => Question): Unit ={
-    val d = initContext(Poll("u", "n"))
-    val res = d.w.processQuery("u", AddQuestionQuery(name, qtype, options))
+    val d = initContext(basePoll.copy( isAnon = false))
+    val res = d.w.processQuery(baseUser, AddQuestionQuery(name, qtype, options))
     assert(isCorrectTypeAnd[QuestionAdded](res, r =>
       d.polls.get(d.id).get.questions(r.questionId) == f(name, options)))
   }
 
   "add_question" should "work correctly" in{
-    customAddQuestionTest("a", None, List("1"), (n, l) => ChoiceQuestion(n, l))
-    customAddQuestionTest("a", Some(Choice), List("1"), (n, l) => ChoiceQuestion(n, l))
-    customAddQuestionTest("a", Some(Multiple), List("1"), (n, l) => MultipleQuestion(n, l))
-    customAddQuestionTest("a", Some(Open), Nil, (n, _) => OpenQuestion(n))
+    customAddQuestionTest("a", None, List("1"), (n, l) => ChoiceQuestion(n, l, false))
+    customAddQuestionTest("a", Some(Choice), List("1"), (n, l) => ChoiceQuestion(n, l, false))
+    customAddQuestionTest("a", Some(Multiple), List("1"), (n, l) => MultipleQuestion(n, l, false))
+    customAddQuestionTest("a", Some(Open), Nil, (n, _) => OpenQuestion(n, false))
   }
 
   def customAddQuestionMsgTest(name: String, qtype: Option[QuestionType],
                                options: List[String], msg: Message): Unit = {
-    val d = initContext(Poll("u", "n"))
-    val res = d.w.processQuery("u", AddQuestionQuery(name, qtype, options))
+    val d = initContext(basePoll)
+    val res = d.w.processQuery(baseUser, AddQuestionQuery(name, qtype, options))
     assert(isCorrectMsg(res, msg))
   }
 
@@ -209,43 +212,49 @@ class WorkerTests extends FlatSpec with Matchers{
     customAddQuestionMsgTest("a", Some(Open), List("1"), NoOptionsExpected)
 
   "delete_question" should "work correctly" in
-    customQuestionTest(DeleteQuestionQuery, OpenQuestion("a"), QuestionDeleted, _.isEmpty)
+    customQuestionTest(DeleteQuestionQuery, OpenQuestion("a", false), QuestionDeleted, _.isEmpty)
 
   "QuestionNotFound" should "be returned" in{
-    val d = initContext(Poll("user", "n"))
-    val queries = List[Query](DeleteQuestionQuery(0)/*, AnswerQuestionQuery(0, "a")*/)
+    val d = initContext(basePoll)
+    val queries = List[Query](DeleteQuestionQuery(0), AnswerQuestionQuery(0, "a"))
     for(q <- queries)
       processAndAssertMsg(d.w, q, QuestionNotFound)
   }
 
   "answer_question" should "work correctly" in{
     customQuestionTest(id => AnswerQuestionQuery(id, "answer"),
-      OpenQuestion("a"), Answered, _ => true)
-    //customQuestionTest(id => AnswerQuestionQuery(id, "1"),
-      //MultipleQuestion("a", List("a", "b", "c")), Answered, _ => true)
+      OpenQuestion("a", false), Answered, _ => true)
     customQuestionTest(id => AnswerQuestionQuery(id, "1"),
-      ChoiceQuestion("a", List("a", "b")), Answered, _ => true)
+      MultipleQuestion("a", List("a", "b", "c"), false), Answered, _ => true)
+    customQuestionTest(id => AnswerQuestionQuery(id, "1"),
+      ChoiceQuestion("a", List("a"), false), Answered, _ => true)
   }
+
+  def customChoiceTest(answer: String, msg: Message): Unit =
+    customQuestionTest(id => AnswerQuestionQuery(id, answer),
+      ChoiceQuestion("a", List("1"), false), msg, _ => true)
+
+  def customMultipleTest(answer: String, msg: Message): Unit =
+    customQuestionTest(id => AnswerQuestionQuery(id, answer),
+      MultipleQuestion("a", List("1"), false), msg, _ => true)
 
   it should "return AlreadyAnswered" in
     customQuestionTest(id => AnswerQuestionQuery(id, "a"),
-      OpenQuestion("a", voted = List("u")), AlreadyAnswered, _ => true)
+      OpenQuestion("a", false, voted = List(baseUser)), AlreadyAnswered, _ => true)
 
   it should "return WrongAnswerFormat" in{
-    def choiceFunc(answer: String) =
-      customQuestionTest(id => AnswerQuestionQuery(id, answer),
-        ChoiceQuestion("a", List("1")), WrongAnswerFormat, _ => true)
-
-    def multipleFunc(answer: String) =
-      customQuestionTest(id => AnswerQuestionQuery(id, answer),
-        MultipleQuestion("a", List("1")), WrongAnswerFormat, _ => true)
-
-    choiceFunc("-1")
-    choiceFunc("2")
-    choiceFunc("1 2")
-    multipleFunc("-1")
-    multipleFunc("1 2")
-    multipleFunc("1 1")
-    multipleFunc("abc")
+    customChoiceTest("1 2", WrongAnswerFormat)
+    customChoiceTest("abc", WrongAnswerFormat)
+    customMultipleTest("abc", WrongAnswerFormat)
   }
+
+  it should "return OutOfRange" in{
+    customChoiceTest("0", OutOfRange)
+    customChoiceTest("2", OutOfRange)
+    customMultipleTest("1 2", OutOfRange)
+    customMultipleTest("1 -1", OutOfRange)
+  }
+
+  it should "return MustBeDifferent" in
+    customMultipleTest("1 1", MustBeDifferent)
 }

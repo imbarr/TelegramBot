@@ -63,7 +63,7 @@ class CommandParserTests extends FlatSpec with Matchers {
       "/delete_poll (99999)" -> DeletePollQuery(99999),
       "/start_poll (0)" -> StartPollQuery(0),
       "/stop_poll (10)" -> StopPollQuery(10),
-      "/result (0)" -> ResultQuery(0),
+      "/result (0)" -> ViewResultQuery(0),
       "/begin (76)" -> BeginQuery(76),
       "/delete_question (3)" -> DeleteQuestionQuery(3),
       "/answer (9) (abcd)" -> AnswerQuestionQuery(9, "abcd")))

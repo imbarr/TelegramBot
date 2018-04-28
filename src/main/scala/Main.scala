@@ -1,7 +1,5 @@
 import container.PollMemoryContainer
 import structures.query.Query
-import structures.result.Result
-
 import scala.io.Source
 
 object Main{
@@ -13,12 +11,13 @@ object Main{
     val printer = new Printer()
 
     def inputToOutput(in: String): String ={
-      val result = parser.parse(in).fold(x => x, (x: Query) => worker.processQuery("user", x))
+      val result = parser.parse(in.split(":").drop(1).mkString("")).fold(
+        x => x, (x: Query) => worker.processQuery(in.split(":")(0), x))
       printer.get(result)
     }
 
     val stream = getClass.getResourceAsStream("/input.txt")
-    for(command <- Source.fromInputStream(stream).mkString.split("\n\n")){
+    for(command <- Source.fromInputStream(stream).mkString.split(System.lineSeparator() + System.lineSeparator())){
         print(inputToOutput(command)+ "\n\n")
     }
   }
