@@ -10,10 +10,9 @@ import structures.result._
 
 import scala.util.parsing.combinator.RegexParsers
 
-class Worker(polls: PollContainer) extends  RegexParsers{
-  var currentPoll: Option[Int] = None
-
+class Worker(polls: PollContainer, var currentPoll: Option[Int] = None) extends  RegexParsers{
   private def now: Date = Calendar.getInstance().getTime
+  //TODO
 
   def processQuery(user: String, query: Query): Result = query match {
     case x: CreatePollQuery => createPoll(user, x)
@@ -136,7 +135,7 @@ class Worker(polls: PollContainer) extends  RegexParsers{
 
   private def addQuestionTo(id: Int, poll: Poll, q: Question): QuestionAdded = {
     polls.set(id, poll.add(q))
-    QuestionAdded(poll.questions.length + 1)
+    QuestionAdded(poll.questions.length)
   }
 
   def deleteQuestion(user: String, q: DeleteQuestionQuery): Result =

@@ -24,4 +24,8 @@ case class Poll(user: String, name: String, isAnon: Boolean = true, isVisible: B
 
   def set(id: Int, q: Question): Poll =
     copy(questions = questions.patch(id, Seq(q), 1))
+
+  def get(id: Int): Option[Question] =
+    if(questions.lengthCompare(id) > 0) Some(questions(id))
+    else None
 }

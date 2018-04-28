@@ -1,16 +1,19 @@
 /create_poll (gsgs (( oo))))) (no)
 
-/create_poll (second) (yes) (continuous)
+/begin (0)
 
-/list
+/add_question (choice)
+1
+2
+3
 
-/delete_poll (1dbffgfb)
+/answer (0) 4
 
-/start_poll (0)
+/answer (0) (4)
 
-/result (0)
+/answer (0) (3)
 
-/stop_poll (0)
+/end
 
 /list
 

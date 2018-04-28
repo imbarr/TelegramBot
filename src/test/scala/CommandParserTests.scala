@@ -4,15 +4,18 @@ import structures.result.{MsgResult, ParseFailureResult}
 import structures.Message.CommandNotFound
 import structures.QuestionType._
 
+import scala.reflect.ClassTag
+
 class CommandParserTests extends FlatSpec with Matchers {
   val p = new CommandParser()
 
-  def isInstance[T](x: Any): Boolean = x match {
+  def isInstance[T: ClassTag](x: Any): Boolean = x match {
     case _: T => true
     case _ => false
   }
 
-  def assertWrongFormat(s: String): Assertion = assert(isInstance[ParseFailureResult](p.parse(s).left))
+  def assertWrongFormat(s: String): Assertion = assert(
+    isInstance[ParseFailureResult](p.parse(s).left.get))
 
   def assertWrongFormat(strings: Seq[String]): Unit = for(el <- strings) assertWrongFormat(el)
 
