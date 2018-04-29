@@ -1,15 +1,12 @@
 import info.mukel.telegrambot4s.api.{Polling, TelegramBot}
 import info.mukel.telegrambot4s.api.declarative.Commands
+import info.mukel.telegrambot4s.models.User
 
-class PollingBot(commands: Iterable[String], inputToOutput: (String, String) => String)
+class PollingBot(telegramToken: String, commands: Iterable[String], inputToOutput: (User, String) => String)
   extends TelegramBot with Polling with Commands{
 
-  lazy val token = "Anime was a mistake"
+  lazy val token: String = telegramToken
 
   for(c <- commands)
-    onCommand(c) {
-      implicit msg => withArgs {
-        args => inputToOutput("user", (c :+ args).mkString(" "))
-      }
-    }
+    onCommand(c) { implicit msg => reply(inputToOutput(msg.from.get, msg.text.get)) }
 }

@@ -1,6 +1,7 @@
 import java.util.{Calendar, Date}
 
 import container.PollContainer
+import info.mukel.telegrambot4s.models.User
 import structures.query._
 import structures.Message._
 import structures.QuestionType._
@@ -11,10 +12,10 @@ import structures.result._
 import scala.util.Try
 import scala.util.parsing.combinator.RegexParsers
 
-class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) extends  RegexParsers{
+class Worker(polls: PollContainer, var currentPoll: Map[User, Int] = Map()) extends  RegexParsers{
   private def now: Date = Calendar.getInstance().getTime
 
-  def processQuery(user: String, query: Query): Result = query match {
+  def processQuery(user: User, query: Query): Result = query match {
     case x: CreatePollQuery => createPoll(user, x)
     case x: ListQuery => viewList(user, x)
     case x: DeletePollQuery => deletePoll(user, x)
@@ -29,15 +30,15 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
     case x: AnswerQuestionQuery => answerQuestion(user, x)
   }
 
-  def createPoll(user: String, q: CreatePollQuery): Result = {
+  def createPoll(user: User, q: CreatePollQuery): Result = {
     val id = polls.add(Poll(user, q.name, q.isAnon.getOrElse(true),
       q.isVisible.getOrElse(false), q.startTime, q.stopTime))
     PollCreated(id)
   }
 
-  def viewList(user: String, q: ListQuery): Result = ViewList(polls.toList)
+  def viewList(user: User, q: ListQuery): Result = ViewList(polls.toList)
 
-  private def wrapContext(user: String, q: Query, f: (Int, Poll) => Result): Result = {
+  private def wrapContext(user: User, q: Query, f: (Int, Poll) => Result): Result = {
     currentPoll.get(user) match {
       case None => NotInContext
       case Some(id) => polls.get(id) match{
@@ -57,24 +58,24 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
     if(poll.questions.lengthCompare(q.id) <= 0) QuestionNotFound
     else f(q.id, poll.questions(q.id))
 
-  private def wrapNoRights(user: String, id: Int, poll: Poll, f: (Int, Poll) => Result): Result = {
+  private def wrapNoRights(user: User, id: Int, poll: Poll, f: (Int, Poll) => Result): Result = {
     if(poll.user == user) f(id, poll)
     else NoRights
   }
 
-  private def wrapNotFoundAndNoRights(user: String, q: QueryWithId, f: (Int, Poll) => Result) =
+  private def wrapNotFoundAndNoRights(user: User, q: QueryWithId, f: (Int, Poll) => Result) =
     wrapNotFound(q, (id, poll) => wrapNoRights(user, id, poll, f))
 
-  private def wrapContextAndNoRights(user: String, q: Query, f: (Int, Poll) => Result): Result =
+  private def wrapContextAndNoRights(user: User, q: Query, f: (Int, Poll) => Result): Result =
     wrapContext(user, q, (id, poll) => wrapNoRights(user, id, poll, f))
 
-  def deletePoll(user: String, q: DeletePollQuery): Result =
+  def deletePoll(user: User, q: DeletePollQuery): Result =
     wrapNotFoundAndNoRights(user, q, (id, _) => {
       polls.delete(id)
       PollDeleted
     })
 
-  def startPoll(user: String, q: StartPollQuery): Result =
+  def startPoll(user: User, q: StartPollQuery): Result =
     wrapNotFoundAndNoRights(user, q, (id, poll) => {
       if (poll.stopped(now)) AlreadyStopped
       else if (poll.started(now)) AlreadyStarted
@@ -85,7 +86,7 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
       }
     })
 
-  def stopPoll(user: String, q: StopPollQuery): Result =
+  def stopPoll(user: User, q: StopPollQuery): Result =
     wrapNotFoundAndNoRights(user, q, (id, poll) => {
       if (poll.stopped(now)) AlreadyStopped
       else if (!poll.started(now)) NotYetStarted
@@ -96,31 +97,31 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
       }
     })
 
-  def viewResult(user: String, q: ViewResultQuery): Result =
+  def viewResult(user: User, q: ViewResultQuery): Result =
     wrapNotFound(q, (_, poll) => {
       if (!poll.started(now)) NotYetStarted
       else if (!poll.stopped(now) && !poll.isVisible) IsNotVisible
       else ViewResult(poll)
     })
 
-  def begin(user: String, q: BeginQuery): Result =
+  def begin(user: User, q: BeginQuery): Result =
     if (currentPoll.get(user).isDefined) AlreadyInContext
     else wrapNotFound(q, (id, _) => {
       currentPoll += (user -> id)
       Begin
     })
 
-  def end(user: String, q: EndQuery): Result =
+  def end(user: User, q: EndQuery): Result =
     if (currentPoll.get(user).isEmpty) NotInContext
     else {
       currentPoll -= user
       End
     }
 
-  def view(user: String, q: ViewQuery): Result =
+  def view(user: User, q: ViewQuery): Result =
     wrapContext(user, q, (_, poll) => View(poll))
 
-  def addQuestion(user: String, q: AddQuestionQuery): Result =
+  def addQuestion(user: User, q: AddQuestionQuery): Result =
     wrapContextAndNoRights(user, q, (id, poll) =>
       if(poll.stopped(now)) AlreadyStopped
       else if(poll.started(now)) AlreadyStarted
@@ -141,7 +142,7 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
     QuestionAdded(poll.questions.length)
   }
 
-  def deleteQuestion(user: String, q: DeleteQuestionQuery): Result =
+  def deleteQuestion(user: User, q: DeleteQuestionQuery): Result =
     wrapContextAndNoRights(user, q, (id, poll) =>
       wrapQuestionNotFound(poll, q, (questionId, _) =>
         if(poll.stopped(now)) AlreadyStopped
@@ -151,7 +152,7 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
           QuestionDeleted
       }))
 
-  def answerQuestion(user: String, q: AnswerQuestionQuery): Result =
+  def answerQuestion(user: User, q: AnswerQuestionQuery): Result =
     wrapContext(user,  q, (id, poll) =>
       wrapQuestionNotFound(poll, q, (questionId, question) =>
         if(poll.stopped(now)) AlreadyStopped
@@ -167,7 +168,7 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
               Answered
         }}))
 
-  private def answerChoiceQuestion(user: String, answer: String, q: ChoiceQuestion,
+  private def answerChoiceQuestion(user: User, answer: String, q: ChoiceQuestion,
                                    f: ChoiceQuestion => Unit): Result =
     Try(answer.toInt - 1).toOption match{
       case Some(x) =>
@@ -179,7 +180,7 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
       case None => WrongAnswerFormat
     }
 
-  private def answerMultipleQuestion(user: String, answer: String, q: MultipleQuestion,
+  private def answerMultipleQuestion(user: User, answer: String, q: MultipleQuestion,
                                      f: MultipleQuestion => Unit): Result =
     Try(answer.split(' ').map(_.toInt - 1)).toOption match{
       case Some(list) =>

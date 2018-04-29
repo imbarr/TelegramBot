@@ -12,12 +12,17 @@ class Printer {
   def get(result: Result): String = result match{
     case x: PollCreated => "Poll " + x.pollId + " was created."
     case x: QuestionAdded => "Question " + x.questionId + " was created."
-    case x: ViewList => x.polls.map(p => p._1 + " " + p._2.name).mkString("\n")
+    case x: ViewList => viewList(x.polls)
     case x: ViewResult => viewResult(x.poll)
     case x: View => view(x.poll)
     case x: ParseFailureResult => "Parse error at pos " + x.column + ": " + x.msg
 
     case x: MsgResult => msgMap(x.msg)
+  }
+
+  def viewList(polls: List[(Int, Poll)]): String ={
+    val list = polls.map(p => p._1 + ": \"" + p._2.name + "\"")
+    if(list.nonEmpty) list.mkString("\n") else "Poll list is empty."
   }
 
   def viewResult(poll: Poll): String =
@@ -54,7 +59,7 @@ class Printer {
 
   def view(poll: Poll): String =
     s"""Poll "${poll.name}" [${status(poll)}]:
-       |  Created by: ${poll.user}
+       |  Created by: ${poll.user.firstName}" ("${poll.user.id}")"
        |  ${if(poll.isAnon) "Anonymous" else "Not anonymous"}
        |  Results can ${if(!poll.isVisible) "not " else ""}be viewed during voting
        |  Start time: ${date(poll.start_time)}

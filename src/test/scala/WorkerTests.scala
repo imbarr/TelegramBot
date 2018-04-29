@@ -1,6 +1,7 @@
 import java.util.{Calendar, Date}
 
 import container.PollMemoryContainer
+import info.mukel.telegrambot4s.models.User
 import org.scalatest._
 import structures.Poll
 import structures.QuestionType._
@@ -14,7 +15,7 @@ import structures.question.{ChoiceQuestion, MultipleQuestion, OpenQuestion, Ques
 import scala.reflect.ClassTag
 
 class WorkerTests extends FlatSpec with Matchers{
-  val baseUser = "user"
+  val baseUser = User(12, false, "user")
   val basePoll = Poll(baseUser, "name")
   val now: Date = Calendar.getInstance().getTime
   val past: Date = Calendar.getInstance().getTime
@@ -118,7 +119,7 @@ class WorkerTests extends FlatSpec with Matchers{
   }
 
   "NoRights message" should "be returned" in {
-    val d = initContext(Poll("admin", "name"))
+    val d = initContext(Poll(baseUser.copy(username = Some("admin")), "name"))
     d.w.currentPoll += (baseUser -> d.id)
     val queries = List[Query](DeletePollQuery(d.id), StartPollQuery(d.id), StopPollQuery(d.id),
       AddQuestionQuery("a"))

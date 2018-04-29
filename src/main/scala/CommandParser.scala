@@ -59,11 +59,12 @@ class CommandParser extends RegexParsers {
     "/answer" ->
       (arg(int) ~ arg(string) ^^ (p => AnswerQuestionQuery(p._1, p._2))))
 
-  def parse(s: String): Either[Result, Query] = parsers.get(s.split(" ")(0)) match {
-    case Some(p) => parse(p ~ """$""".r, s.split(" ").drop(1).mkString(" ")) match {
-      case Success(q, _) => Right(q._1)
-      case NoSuccess(msg, x) => Left(ParseFailureResult(msg, x.pos.column))
+  def parse(s: String): Either[Result, Query] =
+    parsers.get(s.split(" ")(0)) match {
+      case Some(p) => parse(p ~ """$""".r, s.split(" ").drop(1).mkString(" ")) match {
+        case Success(q, _) => Right(q._1)
+        case NoSuccess(msg, x) => Left(ParseFailureResult(msg, x.pos.column))
+      }
+      case None => Left(CommandNotFound)
     }
-    case None => Left(CommandNotFound)
-  }
 }
