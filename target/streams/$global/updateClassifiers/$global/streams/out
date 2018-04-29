@@ -4035,31 +4035,55 @@
 [debug] == resolving dependencies default#telegrambot$sources;0.1->org.scala-lang#scala-compiler;2.12.5 [scala-tool->master]
 [debug] 	resolved ivy file produced in cache
 [debug] :: downloading artifacts ::
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.typesafe.scala-logging\scala-logging_2.12\3.7.2\srcs\scala-logging_2.12-sources.jar
+[debug] 		tried /home/mikhail/.ivy2/local/com.typesafe.scala-logging/scala-logging_2.12/3.7.2/srcs/scala-logging_2.12-sources.jar
 [debug] 		tried https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.fasterxml.jackson.core\jackson-annotations\2.8.0\srcs\jackson-annotations-sources.jar
+[debug] 		tried /home/mikhail/.ivy2/local/com.typesafe.akka/akka-actor_2.12/2.4.19/srcs/akka-actor_2.12-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar
+[debug] 		tried /home/mikhail/.ivy2/local/com.fasterxml.jackson.core/jackson-annotations/2.8.0/srcs/jackson-annotations-sources.jar
 [debug] 		tried https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.fasterxml.jackson.core\jackson-databind\2.8.4\srcs\jackson-databind-sources.jar
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.typesafe\ssl-config-core_2.12\0.2.1\srcs\ssl-config-core_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.thoughtworks.paranamer\paranamer\2.8\srcs\paranamer-sources.jar
-[debug] 		tried C:\Users\Ilya\.ivy2\local\joda-time\joda-time\2.9.5\srcs\joda-time-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.5!scala-reflect.jar(src)
+[debug] 		tried /home/mikhail/.ivy2/local/joda-time/joda-time/2.9.5/srcs/joda-time-sources.jar
+[debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(src)
+[debug] 		tried https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar
+[debug] 		tried /home/mikhail/.ivy2/local/org.joda/joda-convert/1.8.1/srcs/joda-convert-sources.jar
+[debug] 		tried /home/mikhail/.ivy2/local/com.typesafe.akka/akka-stream_2.12/2.4.19/srcs/akka-stream_2.12-sources.jar
+[debug] 		tried /home/mikhail/.ivy2/local/com.thoughtworks.paranamer/paranamer/2.8/srcs/paranamer-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] 		tried /home/mikhail/.ivy2/local/com.typesafe/ssl-config-core_2.12/0.2.1/srcs/ssl-config-core_2.12-sources.jar
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.12.5!scala-library.jar(src)
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] 		tried https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] 		tried /home/mikhail/.ivy2/local/com.fasterxml.jackson.core/jackson-databind/2.8.4/srcs/jackson-databind-sources.jar
 [info] downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar ...
 [debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar
-[debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(src)
-[debug] no default ivy user dir defined: set to C:\Users\Ilya\.ivy2
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
-[debug] no default cache defined: set to C:\Users\Ilya\.ivy2\cache
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
-[debug] settings loaded (10ms)
-[debug] 	default cache: C:\Users\Ilya\.ivy2\cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[info] downloading https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar
+[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar
+[debug] 		tried /home/mikhail/.ivy2/local/org.json4s/json4s-jackson_2.12/3.5.3/srcs/json4s-jackson_2.12-sources.jar
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] settings loaded (36ms)
+[debug] 	default cache: /home/mikhail/.ivy2/cache
 [debug] 	default resolver: default
 [debug] 	-- 5 resolvers:
 [debug] 	shared [file]
@@ -4067,34 +4091,32 @@
 [debug] 	public [ibiblio]
 [debug] 	main [chain] [shared, public]
 [debug] 	local [file]
+[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1-sources.jar
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] 	[NOT REQUIRED] org.scalatest#scalatest_2.12;3.0.5!scalatest_2.12.jar(src)
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] settings loaded (47ms)
+[debug] 	default cache: /home/mikhail/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
 [debug] 		tried https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8-sources.jar
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.typesafe.akka\akka-stream_2.12\2.4.19\srcs\akka-stream_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar
-[debug] 		tried C:\Users\Ilya\.ivy2\local\org.json4s\json4s-jackson_2.12\3.5.3\srcs\json4s-jackson_2.12-sources.jar
-[debug] no default ivy user dir defined: set to C:\Users\Ilya\.ivy2
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.fasterxml.jackson.core\jackson-core\2.8.4\srcs\jackson-core-sources.jar
-[debug] no default ivy user dir defined: set to C:\Users\Ilya\.ivy2
-[debug] no default cache defined: set to C:\Users\Ilya\.ivy2\cache
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] 		tried C:\Users\Ilya\.ivy2\local\org.json4s\json4s-ext_2.12\3.5.3\srcs\json4s-ext_2.12-sources.jar
-[debug] no default ivy user dir defined: set to C:\Users\Ilya\.ivy2
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
-[debug] no default cache defined: set to C:\Users\Ilya\.ivy2\cache
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] no default cache defined: set to C:\Users\Ilya\.ivy2\cache
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
-[debug] settings loaded (10ms)
-[debug] 	default cache: C:\Users\Ilya\.ivy2\cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar(src)
+[debug] settings loaded (43ms)
+[debug] 	default cache: /home/mikhail/.ivy2/cache
 [debug] 	default resolver: default
 [debug] 	-- 5 resolvers:
 [debug] 	shared [file]
@@ -4102,10 +4124,11 @@
 [debug] 	public [ibiblio]
 [debug] 	main [chain] [shared, public]
 [debug] 	local [file]
-[debug] 		tried https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
-[debug] settings loaded (18ms)
-[debug] 	default cache: C:\Users\Ilya\.ivy2\cache
+[debug] 		tried /home/mikhail/.ivy2/local/org.json4s/json4s-ext_2.12/3.5.3/srcs/json4s-ext_2.12-sources.jar
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] settings loaded (22ms)
+[debug] 	default cache: /home/mikhail/.ivy2/cache
 [debug] 	default resolver: default
 [debug] 	-- 5 resolvers:
 [debug] 	shared [file]
@@ -4113,25 +4136,13 @@
 [debug] 	public [ibiblio]
 [debug] 	main [chain] [shared, public]
 [debug] 	local [file]
-[debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.5!scala-reflect.jar(src)
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
 [debug] 		tried https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar
-[debug] no default ivy user dir defined: set to C:\Users\Ilya\.ivy2
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
-[debug] no default cache defined: set to C:\Users\Ilya\.ivy2\cache
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
-[debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.12.5!scala-library.jar(src)
-[debug] no default ivy user dir defined: set to C:\Users\Ilya\.ivy2
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
-[debug] no default cache defined: set to C:\Users\Ilya\.ivy2\cache
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
-[debug] settings loaded (23ms)
-[debug] 	default cache: C:\Users\Ilya\.ivy2\cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] 	[NOT REQUIRED] org.slf4j#slf4j-api;1.7.25!slf4j-api.jar(src)
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] settings loaded (25ms)
+[debug] 	default cache: /home/mikhail/.ivy2/cache
 [debug] 	default resolver: default
 [debug] 	-- 5 resolvers:
 [debug] 	shared [file]
@@ -4139,8 +4150,80 @@
 [debug] 	public [ibiblio]
 [debug] 	main [chain] [shared, public]
 [debug] 	local [file]
-[debug] settings loaded (45ms)
-[debug] 	default cache: C:\Users\Ilya\.ivy2\cache
+[debug] 		tried https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar
+[info] downloading https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] 	[NOT REQUIRED] jline#jline;2.14.5!jline.jar(src)
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] 	[NOT REQUIRED] org.reactivestreams#reactive-streams;1.0.0!reactive-streams.jar(src)
+[debug] 		tried /home/mikhail/.ivy2/local/com.fasterxml.jackson.core/jackson-core/2.8.4/srcs/jackson-core-sources.jar
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] 		tried /home/mikhail/.ivy2/local/org.scala-lang.modules/scala-java8-compat_2.12/0.8.0/srcs/scala-java8-compat_2.12-sources.jar
+[debug] no default ivy user dir defined: set to /home/mikhail/.ivy2
+[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0-sources.jar
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] no default cache defined: set to /home/mikhail/.ivy2/cache
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] settings loaded (14ms)
+[debug] 	default cache: /home/mikhail/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] settings loaded (38ms)
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] 	default cache: /home/mikhail/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] settings loaded (39ms)
+[debug] 	default cache: /home/mikhail/.ivy2/cache
+[debug] 	default resolver: default
+[debug] including url: jar:file:/home/mikhail/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] settings loaded (54ms)
+[debug] 	default cache: /home/mikhail/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] settings loaded (21ms)
+[debug] 	default cache: /home/mikhail/.ivy2/cache
 [debug] 	default resolver: default
 [debug] 	-- 5 resolvers:
 [debug] 	shared [file]
@@ -4149,217 +4232,138 @@
 [debug] 	main [chain] [shared, public]
 [debug] 	local [file]
 [debug] 		tried https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4-sources.jar
-[debug] settings loaded (38ms)
-[debug] 	default cache: C:\Users\Ilya\.ivy2\cache
-[debug] 	default resolver: default
-[debug] 	-- 5 resolvers:
-[debug] 	shared [file]
-[debug] 	default [chain] [local, main]
-[debug] 	public [ibiblio]
-[debug] 	main [chain] [shared, public]
-[debug] 	local [file]
-[info] downloading https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar
 [info] downloading https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1-sources.jar ...
 [debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar.sha1
-[debug] 		tried C:\Users\Ilya\.ivy2\local\org.slf4j\slf4j-api\1.7.25\srcs\slf4j-api-sources.jar
-[debug] 	[NOT REQUIRED] org.scalatest#scalatest_2.12;3.0.5!scalatest_2.12.jar(src)
-[debug] 		tried https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar
-[debug] no default ivy user dir defined: set to C:\Users\Ilya\.ivy2
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
-[debug] no default cache defined: set to C:\Users\Ilya\.ivy2\cache
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
-[debug] settings loaded (14ms)
-[debug] 	default cache: C:\Users\Ilya\.ivy2\cache
-[debug] 	default resolver: default
 [debug] 	-- 5 resolvers:
 [debug] 	shared [file]
 [debug] 	default [chain] [local, main]
 [debug] 	public [ibiblio]
 [debug] 	main [chain] [shared, public]
 [debug] 	local [file]
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar.sha1
+[debug] 		tried https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.5!scala-compiler.jar(src)
 [debug] 	[NOT REQUIRED] org.scalacheck#scalacheck_2.12;1.13.4!scalacheck_2.12.jar(src)
 [info] downloading https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8-sources.jar ...
 [debug] 	public: downloading https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.typesafe.akka\akka-actor_2.12\2.4.19\srcs\akka-actor_2.12-sources.jar
-[debug] no default ivy user dir defined: set to C:\Users\Ilya\.ivy2
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar
-[info] 	[SUCCESSFUL ] com.typesafe.scala-logging#scala-logging_2.12;3.7.2!scala-logging_2.12.jar(src) (436ms)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\info.mukel\telegrambot4s_2.12\3.0.14\srcs\telegrambot4s_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
-[debug] 		tried C:\Users\Ilya\.ivy2\local\org.reactivestreams\reactive-streams\1.0.0\srcs\reactive-streams-sources.jar
-[debug] no default cache defined: set to C:\Users\Ilya\.ivy2\cache
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] no default ivy user dir defined: set to C:\Users\Ilya\.ivy2
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
-[debug] no default cache defined: set to C:\Users\Ilya\.ivy2\cache
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
-[debug] including url: jar:file:/C:/Users/Ilya/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
-[debug] settings loaded (7ms)
-[debug] 	default cache: C:\Users\Ilya\.ivy2\cache
-[debug] 	default resolver: default
-[debug] 	-- 5 resolvers:
-[debug] 	shared [file]
-[debug] 	default [chain] [local, main]
-[debug] 	public [ibiblio]
-[debug] 	main [chain] [shared, public]
-[debug] 	local [file]
-[debug] settings loaded (23ms)
-[debug] 	default cache: C:\Users\Ilya\.ivy2\cache
-[debug] 	default resolver: default
-[debug] 	-- 5 resolvers:
-[debug] 	shared [file]
-[debug] 	default [chain] [local, main]
-[debug] 		tried https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.0/reactive-streams-1.0.0-sources.jar
-[debug] 	public [ibiblio]
-[debug] 	main [chain] [shared, public]
-[debug] 	local [file]
-[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar
-[debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar(src)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\org.joda\joda-convert\1.8.1\srcs\joda-convert-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1-sources.jar.sha1
-[debug] 	[NOT REQUIRED] jline#jline;2.14.5!jline.jar(src)
-[debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.5!scala-compiler.jar(src)
-[info] downloading https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar
-[info] downloading https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar
-[info] 	[SUCCESSFUL ] com.fasterxml.jackson.core#jackson-annotations;2.8.0!jackson-annotations.jar(src) (497ms)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.typesafe.akka\akka-parsing_2.12\10.0.10\srcs\akka-parsing_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar
 [info] downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4-sources.jar ...
 [debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8-sources.jar.sha1
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1-sources.jar
-[info] 	[SUCCESSFUL ] com.typesafe#ssl-config-core_2.12;0.2.1!ssl-config-core_2.12.jar(src) (570ms)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.typesafe\config\1.3.0\srcs\config-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar.sha1
-[info] downloading https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar
-[info] downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8-sources.jar
-[info] 	[SUCCESSFUL ] com.thoughtworks.paranamer#paranamer;2.8!paranamer.jar(src) (598ms)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\org.json4s\json4s-ast_2.12\3.5.3\srcs\json4s-ast_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar
-[info] downloading https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.0/reactive-streams-1.0.0-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.0/reactive-streams-1.0.0-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar
-[info] 	[SUCCESSFUL ] org.json4s#json4s-ext_2.12;3.5.3!json4s-ext_2.12.jar(src) (622ms)
-[info] 	[SUCCESSFUL ] org.json4s#json4s-jackson_2.12;3.5.3!json4s-jackson_2.12.jar(src) (620ms)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\org.json4s\json4s-scalap_2.12\3.5.3\srcs\json4s-scalap_2.12-sources.jar
-[info] downloading https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar
-[debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.12;1.1.0!scala-parser-combinators_2.12.jar(src)
-[debug] 		tried https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar
-[info] downloading https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar.sha1
-[info] downloading https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.0/reactive-streams-1.0.0-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar.sha1
-[debug] sha1 OK for https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar.sha1
-[info] 	[SUCCESSFUL ] joda-time#joda-time;2.9.5!joda-time.jar(src) (1115ms)
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar
-[debug] 	[NOT REQUIRED] org.scalactic#scalactic_2.12;3.0.5!scalactic_2.12.jar(src)
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar
-[info] 	[SUCCESSFUL ] org.slf4j#slf4j-api;1.7.25!slf4j-api.jar(src) (981ms)
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.0/reactive-streams-1.0.0-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar
-[info] 	[SUCCESSFUL ] org.reactivestreams#reactive-streams;1.0.0!reactive-streams.jar(src) (757ms)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\org.scala-lang.modules\scala-java8-compat_2.12\0.8.0\srcs\scala-java8-compat_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0-sources.jar
-[info] 	[SUCCESSFUL ] com.fasterxml.jackson.core#jackson-databind;2.8.4!jackson-databind.jar(src) (1175ms)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.typesafe.akka\akka-http-core_2.12\10.0.10\srcs\akka-http-core_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar
-[info] 	[SUCCESSFUL ] info.mukel#telegrambot4s_2.12;3.0.14!telegrambot4s_2.12.jar(src) (778ms)
-[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-stream_2.12;2.4.19!akka-stream_2.12.jar(src) (1122ms)
-[info] 	[SUCCESSFUL ] org.json4s#json4s-ast_2.12;3.5.3!json4s-ast_2.12.jar(src) (526ms)
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar.sha1
 [info] downloading https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0-sources.jar ...
 [debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar
-[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-actor_2.12;2.4.19!akka-actor_2.12.jar(src) (875ms)
-[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-parsing_2.12;10.0.10!akka-parsing_2.12.jar(src) (828ms)
-[info] 	[SUCCESSFUL ] com.fasterxml.jackson.core#jackson-core;2.8.4!jackson-core.jar(src) (1181ms)
-[info] 	[SUCCESSFUL ] org.json4s#json4s-scalap_2.12;3.5.3!json4s-scalap_2.12.jar(src) (591ms)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\com.typesafe.akka\akka-http_2.12\10.0.10\srcs\akka-http_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar
-[info] 	[SUCCESSFUL ] com.typesafe#config;1.3.0!config.jar(src) (786ms)
-[info] 	[SUCCESSFUL ] org.joda#joda-convert;1.8.1!joda-convert.jar(src) (969ms)
-[debug] 		tried C:\Users\Ilya\.ivy2\local\org.json4s\json4s-core_2.12\3.5.3\srcs\json4s-core_2.12-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/org/json4s/json4s-core_2.12/3.5.3/json4s-core_2.12-3.5.3-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar.sha1
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8-sources.jar.sha1
+[info] downloading https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar
+[info] downloading https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar
 [debug] 	public: downloading https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0-sources.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4-sources.jar.sha1
+[info] downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar
+[info] downloading https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8-sources.jar
+[info] 	[SUCCESSFUL ] com.fasterxml.jackson.core#jackson-annotations;2.8.0!jackson-annotations.jar(src) (483ms)
+[info] 	[SUCCESSFUL ] com.typesafe.scala-logging#scala-logging_2.12;3.7.2!scala-logging_2.12.jar(src) (497ms)
+[info] 	[SUCCESSFUL ] com.thoughtworks.paranamer#paranamer;2.8!paranamer.jar(src) (398ms)
+[debug] 		tried /home/mikhail/.ivy2/local/com.typesafe.akka/akka-parsing_2.12/10.0.10/srcs/akka-parsing_2.12-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar
+[debug] 		tried /home/mikhail/.ivy2/local/info.mukel/telegrambot4s_2.12/3.0.14/srcs/telegrambot4s_2.12-sources.jar
+[debug] 		tried /home/mikhail/.ivy2/local/org.json4s/json4s-ast_2.12/3.5.3/srcs/json4s-ast_2.12-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0-sources.jar
+[info] 	[SUCCESSFUL ] org.scala-lang.modules#scala-java8-compat_2.12;0.8.0!scala-java8-compat_2.12.jar(src) (396ms)
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4-sources.jar
+[info] 	[SUCCESSFUL ] com.fasterxml.jackson.core#jackson-core;2.8.4!jackson-core.jar(src) (376ms)
+[debug] 		tried /home/mikhail/.ivy2/local/org.json4s/json4s-core_2.12/3.5.3/srcs/json4s-core_2.12-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/org/json4s/json4s-core_2.12/3.5.3/json4s-core_2.12-3.5.3-sources.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar.sha1
+[info] downloading https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar
+[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar
 [info] downloading https://repo1.maven.org/maven2/org/json4s/json4s-core_2.12/3.5.3/json4s-core_2.12-3.5.3-sources.jar ...
 [debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-core_2.12/3.5.3/json4s-core_2.12-3.5.3-sources.jar
-[debug] sha1 OK for https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0-sources.jar
-[info] 	[SUCCESSFUL ] org.scala-lang.modules#scala-java8-compat_2.12;0.8.0!scala-java8-compat_2.12.jar(src) (393ms)
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar.sha1
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1-sources.jar.sha1
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar
+[info] 	[SUCCESSFUL ] org.json4s#json4s-jackson_2.12;3.5.3!json4s-jackson_2.12.jar(src) (540ms)
+[debug] 		tried /home/mikhail/.ivy2/local/org.json4s/json4s-scalap_2.12/3.5.3/srcs/json4s-scalap_2.12-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar
+[info] 	[SUCCESSFUL ] org.json4s#json4s-ext_2.12;3.5.3!json4s-ext_2.12.jar(src) (547ms)
+[debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.12;1.1.0!scala-parser-combinators_2.12.jar(src)
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar.sha1
+[info] downloading https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1-sources.jar
+[info] 	[SUCCESSFUL ] com.typesafe#ssl-config-core_2.12;0.2.1!ssl-config-core_2.12.jar(src) (664ms)
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar
+[info] 	[SUCCESSFUL ] org.joda#joda-convert;1.8.1!joda-convert.jar(src) (699ms)
+[debug] 		tried /home/mikhail/.ivy2/local/com.typesafe/config/1.3.0/srcs/config-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar
 [debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-core_2.12/3.5.3/json4s-core_2.12-3.5.3-sources.jar.sha1
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar.sha1
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar
-[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-http-core_2.12;10.0.10!akka-http-core_2.12.jar(src) (525ms)
+[info] downloading https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar
+[info] downloading https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar
 [debug] sha1 OK for https://repo1.maven.org/maven2/org/json4s/json4s-core_2.12/3.5.3/json4s-core_2.12-3.5.3-sources.jar
+[info] 	[SUCCESSFUL ] org.json4s#json4s-core_2.12;3.5.3!json4s-core_2.12.jar(src) (369ms)
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar
+[info] 	[SUCCESSFUL ] org.json4s#json4s-ast_2.12;3.5.3!json4s-ast_2.12.jar(src) (402ms)
+[debug] 	public: downloading https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar.sha1
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar.sha1
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar.sha1
+[debug] 	public: downloading https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar.sha1
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar
+[debug] sha1 OK for https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar
+[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-actor_2.12;2.4.19!akka-actor_2.12.jar(src) (1186ms)
+[info] 	[SUCCESSFUL ] info.mukel#telegrambot4s_2.12;3.0.14!telegrambot4s_2.12.jar(src) (694ms)
+[info] 	[SUCCESSFUL ] org.json4s#json4s-scalap_2.12;3.5.3!json4s-scalap_2.12.jar(src) (543ms)
+[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-parsing_2.12;10.0.10!akka-parsing_2.12.jar(src) (700ms)
+[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-stream_2.12;2.4.19!akka-stream_2.12.jar(src) (1148ms)
+[debug] 		tried /home/mikhail/.ivy2/local/com.typesafe.akka/akka-http_2.12/10.0.10/srcs/akka-http_2.12-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar
+[info] 	[SUCCESSFUL ] com.fasterxml.jackson.core#jackson-databind;2.8.4!jackson-databind.jar(src) (1109ms)
+[debug] 		tried /home/mikhail/.ivy2/local/com.typesafe.akka/akka-http-core_2.12/10.0.10/srcs/akka-http-core_2.12-sources.jar
+[debug] 		tried https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar
+[debug] sha1 OK for https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar
+[info] 	[SUCCESSFUL ] joda-time#joda-time;2.9.5!joda-time.jar(src) (1230ms)
+[debug] 	[NOT REQUIRED] org.scalactic#scalactic_2.12;3.0.5!scalactic_2.12.jar(src)
+[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar
+[info] 	[SUCCESSFUL ] com.typesafe#config;1.3.0!config.jar(src) (505ms)
+[info] downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar ...
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar.sha1
 [debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar
-[info] 	[SUCCESSFUL ] org.json4s#json4s-core_2.12;3.5.3!json4s-core_2.12.jar(src) (345ms)
-[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-http_2.12;10.0.10!akka-http_2.12.jar(src) (416ms)
-[debug] :: resolution report :: resolve 394ms :: artifacts dl 1788ms
-[debug] 	report for default#telegrambot$sources;0.1 compile produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-compile.xml
-[debug] 	report for default#telegrambot$sources;0.1 runtime produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-runtime.xml
-[debug] 	report for default#telegrambot$sources;0.1 test produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-test.xml
-[debug] 	report for default#telegrambot$sources;0.1 provided produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-provided.xml
-[debug] 	report for default#telegrambot$sources;0.1 optional produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-optional.xml
-[debug] 	report for default#telegrambot$sources;0.1 compile-internal produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-compile-internal.xml
-[debug] 	report for default#telegrambot$sources;0.1 runtime-internal produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-runtime-internal.xml
-[debug] 	report for default#telegrambot$sources;0.1 test-internal produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-test-internal.xml
-[debug] 	report for default#telegrambot$sources;0.1 plugin produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-plugin.xml
-[debug] 	report for default#telegrambot$sources;0.1 pom produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-pom.xml
-[debug] 	report for default#telegrambot$sources;0.1 scala-tool produced in C:\Users\Ilya\IdeaProjects\TelegramBot\target\scala-2.12\resolution-cache\reports\default-telegrambot$sources-scala-tool.xml
-[debug] 	resolve done (394ms resolve - 1788ms download)
+[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-http_2.12;10.0.10!akka-http_2.12.jar(src) (420ms)
+[debug] 	public: downloading https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar.sha1
+[debug] sha1 OK for https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar
+[info] 	[SUCCESSFUL ] com.typesafe.akka#akka-http-core_2.12;10.0.10!akka-http-core_2.12.jar(src) (551ms)
+[debug] :: resolution report :: resolve 642ms :: artifacts dl 1792ms
+[debug] 	report for default#telegrambot$sources;0.1 compile produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-compile.xml
+[debug] 	report for default#telegrambot$sources;0.1 runtime produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-runtime.xml
+[debug] 	report for default#telegrambot$sources;0.1 test produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-test.xml
+[debug] 	report for default#telegrambot$sources;0.1 provided produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-provided.xml
+[debug] 	report for default#telegrambot$sources;0.1 optional produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-optional.xml
+[debug] 	report for default#telegrambot$sources;0.1 compile-internal produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-compile-internal.xml
+[debug] 	report for default#telegrambot$sources;0.1 runtime-internal produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-runtime-internal.xml
+[debug] 	report for default#telegrambot$sources;0.1 test-internal produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-test-internal.xml
+[debug] 	report for default#telegrambot$sources;0.1 plugin produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-plugin.xml
+[debug] 	report for default#telegrambot$sources;0.1 pom produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-pom.xml
+[debug] 	report for default#telegrambot$sources;0.1 scala-tool produced in /home/mikhail/IdeaProjects/TelegramBot/target/scala-2.12/resolution-cache/reports/default-telegrambot$sources-scala-tool.xml
+[debug] 	resolve done (642ms resolve - 1792ms download)

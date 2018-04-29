@@ -59,7 +59,7 @@ class Printer {
 
   def view(poll: Poll): String =
     s"""Poll "${poll.name}" [${status(poll)}]:
-       |  Created by: ${poll.user.firstName}" ("${poll.user.id}")"
+       |  Created by: ${poll.user.firstName} (${poll.user.id})
        |  ${if(poll.isAnon) "Anonymous" else "Not anonymous"}
        |  Results can ${if(!poll.isVisible) "not " else ""}be viewed during voting
        |  Start time: ${date(poll.start_time)}
