@@ -121,17 +121,20 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
     wrapContext(user, q, (_, poll) => View(poll))
 
   def addQuestion(user: String, q: AddQuestionQuery): Result =
-    wrapContextAndNoRights(user, q, (id, poll) => q.questionType.getOrElse(Choice) match {
-      case Choice =>
-        if(q.options.isEmpty) NoOptions
-        else addQuestionTo(id, poll, ChoiceQuestion(q.question, q.options, poll.isAnon))
-      case Multiple =>
-        if(q.options.isEmpty) NoOptions
-        else addQuestionTo(id, poll, MultipleQuestion(q.question, q.options, poll.isAnon))
-      case Open =>
-        if(q.options.nonEmpty) NoOptionsExpected
-        else addQuestionTo(id, poll, OpenQuestion(q.question, poll.isAnon))
-      })
+    wrapContextAndNoRights(user, q, (id, poll) =>
+      if(poll.stopped(now)) AlreadyStopped
+      else if(poll.started(now)) AlreadyStarted
+      else q.questionType.getOrElse(Choice) match {
+        case Choice =>
+          if(q.options.isEmpty) NoOptions
+          else addQuestionTo(id, poll, ChoiceQuestion(q.question, q.options, poll.isAnon))
+        case Multiple =>
+          if(q.options.isEmpty) NoOptions
+          else addQuestionTo(id, poll, MultipleQuestion(q.question, q.options, poll.isAnon))
+        case Open =>
+          if(q.options.nonEmpty) NoOptionsExpected
+          else addQuestionTo(id, poll, OpenQuestion(q.question, poll.isAnon))
+        })
 
   private def addQuestionTo(id: Int, poll: Poll, q: Question): QuestionAdded = {
     polls.set(id, poll.add(q))
@@ -140,7 +143,10 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
 
   def deleteQuestion(user: String, q: DeleteQuestionQuery): Result =
     wrapContextAndNoRights(user, q, (id, poll) =>
-      wrapQuestionNotFound(poll, q, (questionId, _) => {
+      wrapQuestionNotFound(poll, q, (questionId, _) =>
+        if(poll.stopped(now)) AlreadyStopped
+        else if(poll.started(now)) AlreadyStarted
+        else{
           polls.set(id, poll.delete(questionId))
           QuestionDeleted
       }))
@@ -148,7 +154,9 @@ class Worker(polls: PollContainer, var currentPoll: Map[String, Int] = Map()) ex
   def answerQuestion(user: String, q: AnswerQuestionQuery): Result =
     wrapContext(user,  q, (id, poll) =>
       wrapQuestionNotFound(poll, q, (questionId, question) =>
-        if(question.voted.contains(user)) AlreadyAnswered
+        if(poll.stopped(now)) AlreadyStopped
+        else if(!poll.started(now)) NotYetStarted
+        else if(question.voted.contains(user)) AlreadyAnswered
         else{
           def setter(newQuestion: Question): Unit = polls.set(id, poll.set(questionId, newQuestion))
           question match{

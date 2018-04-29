@@ -65,8 +65,9 @@ class WorkerTests extends FlatSpec with Matchers{
   }
 
   def customQuestionTest(f: Int => QueryWithQuestionId, question: Question, msg: Message,
-                         predicate: Option[Question] => Boolean): Assertion ={
-    val p = basePoll.copy(isAnon = false)
+                         predicate: Option[Question] => Boolean,
+                         started: Boolean = true, stopped: Boolean = false): Assertion ={
+    val p = basePoll.copy(isAnon = false, manuallyStarted = started, manuallyStopped = stopped)
     val d = initContext(p)
     d.polls.set(d.id, p.add(question))
     val res = d.w.processQuery(baseUser, f(0))
@@ -197,11 +198,18 @@ class WorkerTests extends FlatSpec with Matchers{
   }
 
   def customAddQuestionMsgTest(name: String, qtype: Option[QuestionType],
-                               options: List[String], msg: Message): Unit = {
-    val d = initContext(basePoll)
+                               options: List[String], msg: Message,
+                               started: Boolean = false, stopped: Boolean = false): Unit = {
+    val d = initContext(basePoll.copy(manuallyStarted = started, manuallyStopped = stopped))
     val res = d.w.processQuery(baseUser, AddQuestionQuery(name, qtype, options))
     assert(isCorrectMsg(res, msg))
   }
+
+  it should "return AlreadyStopped" in
+    customAddQuestionMsgTest("a", Some(Choice), List("1"), AlreadyStopped, true, true)
+
+  it should "return AlreadyStarted" in
+    customAddQuestionMsgTest("a", Some(Choice), List("1"), AlreadyStarted, true, false)
 
   it should "return NoOptions" in{
     customAddQuestionMsgTest("a", Some(Choice), Nil, NoOptions)
@@ -212,7 +220,13 @@ class WorkerTests extends FlatSpec with Matchers{
     customAddQuestionMsgTest("a", Some(Open), List("1"), NoOptionsExpected)
 
   "delete_question" should "work correctly" in
-    customQuestionTest(DeleteQuestionQuery, OpenQuestion("a", false), QuestionDeleted, _.isEmpty)
+    customQuestionTest(DeleteQuestionQuery, OpenQuestion("a", false), QuestionDeleted, _.isEmpty, false, false)
+
+  it should "return AlreadyStopped" in
+    customQuestionTest(DeleteQuestionQuery, OpenQuestion("a", false), AlreadyStopped, _.isDefined, true, true)
+
+  it should "return AlreadyStarted" in
+    customQuestionTest(DeleteQuestionQuery, OpenQuestion("a", false), AlreadyStarted, _.isDefined, true, false)
 
   "QuestionNotFound" should "be returned" in{
     val d = initContext(basePoll)
@@ -229,6 +243,14 @@ class WorkerTests extends FlatSpec with Matchers{
     customQuestionTest(id => AnswerQuestionQuery(id, "1"),
       ChoiceQuestion("a", List("a"), false), Answered, _ => true)
   }
+
+  it should "return AlreadyStopped" in
+    customQuestionTest(id => AnswerQuestionQuery(id, "answer"),
+      OpenQuestion("a", false), AlreadyStopped, _ => true, true, true)
+
+  it should "return NotYetStarted" in
+    customQuestionTest(id => AnswerQuestionQuery(id, "answer"),
+      OpenQuestion("a", false), NotYetStarted, _ => true, false, false)
 
   def customChoiceTest(answer: String, msg: Message): Unit =
     customQuestionTest(id => AnswerQuestionQuery(id, answer),
