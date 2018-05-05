@@ -1,4 +1,3 @@
-import com.typesafe.scalalogging.Logger
 import container.PollMemoryContainer
 import info.mukel.telegrambot4s.models.User
 import structures.query.Query

@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="runtime-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20180429202119"/>
+		date="20180502190029"/>
 	<dependencies>
 		<module organisation="org.scala-lang.modules" name="scala-parser-combinators_2.12">
 			<revision name="1.1.0" status="release" pubdate="20180202021040" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="19">
@@ -63,7 +63,7 @@
 				<metadata-artifact status="no" details="" size="3721" time="0" location="/home/mikhail/.ivy2/cache/info.mukel/telegrambot4s_2.12/ivy-3.0.14.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="3.0.14" rev-constraint-default="3.0.14" rev-constraint-dynamic="3.0.14" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="telegrambot4s_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="118901" time="694" location="/home/mikhail/.ivy2/cache/info.mukel/telegrambot4s_2.12/srcs/telegrambot4s_2.12-3.0.14-sources.jar">
+					<artifact name="telegrambot4s_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="118901" time="0" location="/home/mikhail/.ivy2/cache/info.mukel/telegrambot4s_2.12/srcs/telegrambot4s_2.12-3.0.14-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/info/mukel/telegrambot4s_2.12/3.0.14/telegrambot4s_2.12-3.0.14-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -75,7 +75,7 @@
 				<metadata-artifact status="no" details="" size="3048" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-ext_2.12/ivy-3.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="3.5.3" rev-constraint-default="3.5.3" rev-constraint-dynamic="3.5.3" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="json4s-ext_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="4419" time="547" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-ext_2.12/srcs/json4s-ext_2.12-3.5.3-sources.jar">
+					<artifact name="json4s-ext_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="4419" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-ext_2.12/srcs/json4s-ext_2.12-3.5.3-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/json4s/json4s-ext_2.12/3.5.3/json4s-ext_2.12-3.5.3-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -87,7 +87,7 @@
 				<metadata-artifact status="no" details="" size="6434" time="0" location="/home/mikhail/.ivy2/cache/org.joda/joda-convert/ivy-1.8.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="1.8.1" rev-constraint-default="1.8.1" rev-constraint-dynamic="1.8.1" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="joda-convert" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="45686" time="699" location="/home/mikhail/.ivy2/cache/org.joda/joda-convert/srcs/joda-convert-1.8.1-sources.jar">
+					<artifact name="joda-convert" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="45686" time="0" location="/home/mikhail/.ivy2/cache/org.joda/joda-convert/srcs/joda-convert-1.8.1-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/joda/joda-convert/1.8.1/joda-convert-1.8.1-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -99,7 +99,7 @@
 				<metadata-artifact status="no" details="" size="6701" time="0" location="/home/mikhail/.ivy2/cache/joda-time/joda-time/ivy-2.9.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="2.9.5" rev-constraint-default="2.9.5" rev-constraint-dynamic="2.9.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="joda-time" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="777266" time="1230" location="/home/mikhail/.ivy2/cache/joda-time/joda-time/srcs/joda-time-2.9.5-sources.jar">
+					<artifact name="joda-time" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="777266" time="0" location="/home/mikhail/.ivy2/cache/joda-time/joda-time/srcs/joda-time-2.9.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.9.5/joda-time-2.9.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -111,7 +111,7 @@
 				<metadata-artifact status="no" details="" size="2966" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-jackson_2.12/ivy-3.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="3.5.3" rev-constraint-default="3.5.3" rev-constraint-dynamic="3.5.3" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="json4s-jackson_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="7294" time="540" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-jackson_2.12/srcs/json4s-jackson_2.12-3.5.3-sources.jar">
+					<artifact name="json4s-jackson_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="7294" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-jackson_2.12/srcs/json4s-jackson_2.12-3.5.3-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/json4s/json4s-jackson_2.12/3.5.3/json4s-jackson_2.12-3.5.3-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -123,7 +123,7 @@
 				<metadata-artifact status="no" details="" size="8156" time="0" location="/home/mikhail/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/ivy-2.8.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="2.8.4" rev-constraint-default="2.8.4" rev-constraint-dynamic="2.8.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="jackson-databind" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="918621" time="1109" location="/home/mikhail/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/srcs/jackson-databind-2.8.4-sources.jar">
+					<artifact name="jackson-databind" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="918621" time="0" location="/home/mikhail/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/srcs/jackson-databind-2.8.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.4/jackson-databind-2.8.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -135,7 +135,7 @@
 				<metadata-artifact status="no" details="" size="7423" time="0" location="/home/mikhail/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/ivy-2.8.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="2.8.4" rev-constraint-default="2.8.4" rev-constraint-dynamic="2.8.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="jackson-core" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="293681" time="376" location="/home/mikhail/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/srcs/jackson-core-2.8.4-sources.jar">
+					<artifact name="jackson-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="293681" time="0" location="/home/mikhail/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/srcs/jackson-core-2.8.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.4/jackson-core-2.8.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -147,7 +147,7 @@
 				<metadata-artifact status="no" details="" size="6969" time="0" location="/home/mikhail/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/ivy-2.8.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="2.8.0" rev-constraint-default="2.8.0" rev-constraint-dynamic="2.8.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="jackson-annotations" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="57510" time="483" location="/home/mikhail/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/srcs/jackson-annotations-2.8.0-sources.jar">
+					<artifact name="jackson-annotations" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="57510" time="0" location="/home/mikhail/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/srcs/jackson-annotations-2.8.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -159,7 +159,7 @@
 				<metadata-artifact status="no" details="" size="3249" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-core_2.12/ivy-3.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/json4s/json4s-core_2.12/3.5.3/json4s-core_2.12-3.5.3.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="3.5.3" rev-constraint-default="3.5.3" rev-constraint-dynamic="3.5.3" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="json4s-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="42960" time="369" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-core_2.12/srcs/json4s-core_2.12-3.5.3-sources.jar">
+					<artifact name="json4s-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="42960" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-core_2.12/srcs/json4s-core_2.12-3.5.3-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/json4s/json4s-core_2.12/3.5.3/json4s-core_2.12-3.5.3-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -183,7 +183,7 @@
 				<metadata-artifact status="no" details="" size="4254" time="0" location="/home/mikhail/.ivy2/cache/com.thoughtworks.paranamer/paranamer/ivy-2.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="2.8" rev-constraint-default="2.8" rev-constraint-dynamic="2.8" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="paranamer" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="27125" time="398" location="/home/mikhail/.ivy2/cache/com.thoughtworks.paranamer/paranamer/srcs/paranamer-2.8-sources.jar">
+					<artifact name="paranamer" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="27125" time="0" location="/home/mikhail/.ivy2/cache/com.thoughtworks.paranamer/paranamer/srcs/paranamer-2.8-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -195,7 +195,7 @@
 				<metadata-artifact status="no" details="" size="2657" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-scalap_2.12/ivy-3.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="3.5.3" rev-constraint-default="3.5.3" rev-constraint-dynamic="3.5.3" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="json4s-scalap_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="18582" time="543" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-scalap_2.12/srcs/json4s-scalap_2.12-3.5.3-sources.jar">
+					<artifact name="json4s-scalap_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="18582" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-scalap_2.12/srcs/json4s-scalap_2.12-3.5.3-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/json4s/json4s-scalap_2.12/3.5.3/json4s-scalap_2.12-3.5.3-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -207,7 +207,7 @@
 				<metadata-artifact status="no" details="" size="2648" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-ast_2.12/ivy-3.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="3.5.3" rev-constraint-default="3.5.3" rev-constraint-dynamic="3.5.3" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="json4s-ast_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="6975" time="402" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-ast_2.12/srcs/json4s-ast_2.12-3.5.3-sources.jar">
+					<artifact name="json4s-ast_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="6975" time="0" location="/home/mikhail/.ivy2/cache/org.json4s/json4s-ast_2.12/srcs/json4s-ast_2.12-3.5.3-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -219,7 +219,7 @@
 				<metadata-artifact status="no" details="" size="2793" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-http_2.12/ivy-10.0.10.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="10.0.10" rev-constraint-default="10.0.10" rev-constraint-dynamic="10.0.10" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="akka-http_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="197462" time="420" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-http_2.12/srcs/akka-http_2.12-10.0.10-sources.jar">
+					<artifact name="akka-http_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="197462" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-http_2.12/srcs/akka-http_2.12-10.0.10-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-http_2.12/10.0.10/akka-http_2.12-10.0.10-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -231,7 +231,7 @@
 				<metadata-artifact status="no" details="" size="3570" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-http-core_2.12/ivy-10.0.10.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="10.0.10" rev-constraint-default="10.0.10" rev-constraint-dynamic="10.0.10" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="akka-http-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="392718" time="551" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-http-core_2.12/srcs/akka-http-core_2.12-10.0.10-sources.jar">
+					<artifact name="akka-http-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="392718" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-http-core_2.12/srcs/akka-http-core_2.12-10.0.10-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.0.10/akka-http-core_2.12-10.0.10-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -243,7 +243,7 @@
 				<metadata-artifact status="no" details="" size="3506" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-stream_2.12/ivy-2.4.19.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="2.4.19" rev-constraint-default="2.4.19" rev-constraint-dynamic="2.4.19" callerrev="0.1" extra-info.apiURL="http://doc.akka.io/api/akka/2.4.19"/>
 				<artifacts>
-					<artifact name="akka-stream_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="390950" time="1148" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-stream_2.12/srcs/akka-stream_2.12-2.4.19-sources.jar">
+					<artifact name="akka-stream_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="390950" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-stream_2.12/srcs/akka-stream_2.12-2.4.19-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.4.19/akka-stream_2.12-2.4.19-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -255,7 +255,7 @@
 				<metadata-artifact status="no" details="" size="3613" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe/ssl-config-core_2.12/ivy-0.2.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="0.2.1" rev-constraint-default="0.2.1" rev-constraint-dynamic="0.2.1" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="ssl-config-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="49384" time="664" location="/home/mikhail/.ivy2/cache/com.typesafe/ssl-config-core_2.12/srcs/ssl-config-core_2.12-0.2.1-sources.jar">
+					<artifact name="ssl-config-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="49384" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe/ssl-config-core_2.12/srcs/ssl-config-core_2.12-0.2.1-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.1/ssl-config-core_2.12-0.2.1-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -279,7 +279,7 @@
 				<metadata-artifact status="no" details="" size="2948" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-parsing_2.12/ivy-10.0.10.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="10.0.10" rev-constraint-default="10.0.10" rev-constraint-dynamic="10.0.10" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="akka-parsing_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="63824" time="700" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-parsing_2.12/srcs/akka-parsing_2.12-10.0.10-sources.jar">
+					<artifact name="akka-parsing_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="63824" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-parsing_2.12/srcs/akka-parsing_2.12-10.0.10-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-parsing_2.12/10.0.10/akka-parsing_2.12-10.0.10-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -291,7 +291,7 @@
 				<metadata-artifact status="no" details="" size="3102" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/ivy-2.4.19.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="2.4.19" rev-constraint-default="2.4.19" rev-constraint-dynamic="2.4.19" callerrev="0.1" extra-info.apiURL="http://doc.akka.io/api/akka/2.4.19"/>
 				<artifacts>
-					<artifact name="akka-actor_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="410365" time="1186" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/srcs/akka-actor_2.12-2.4.19-sources.jar">
+					<artifact name="akka-actor_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="410365" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/srcs/akka-actor_2.12-2.4.19-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.4.19/akka-actor_2.12-2.4.19-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -303,7 +303,7 @@
 				<metadata-artifact status="no" details="" size="3036" time="0" location="/home/mikhail/.ivy2/cache/org.scala-lang.modules/scala-java8-compat_2.12/ivy-0.8.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="0.8.0" rev-constraint-default="0.8.0" rev-constraint-dynamic="0.8.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scala-java8-compat_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="63853" time="396" location="/home/mikhail/.ivy2/cache/org.scala-lang.modules/scala-java8-compat_2.12/srcs/scala-java8-compat_2.12-0.8.0-sources.jar">
+					<artifact name="scala-java8-compat_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="63853" time="0" location="/home/mikhail/.ivy2/cache/org.scala-lang.modules/scala-java8-compat_2.12/srcs/scala-java8-compat_2.12-0.8.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-java8-compat_2.12/0.8.0/scala-java8-compat_2.12-0.8.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -315,7 +315,7 @@
 				<metadata-artifact status="no" details="" size="2875" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe/config/ivy-1.3.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="1.3.0" rev-constraint-default="1.3.0" rev-constraint-dynamic="1.3.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="config" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="167084" time="505" location="/home/mikhail/.ivy2/cache/com.typesafe/config/srcs/config-1.3.0-sources.jar">
+					<artifact name="config" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="167084" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe/config/srcs/config-1.3.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/config/1.3.0/config-1.3.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -327,7 +327,7 @@
 				<metadata-artifact status="no" details="" size="3354" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.scala-logging/scala-logging_2.12/ivy-3.7.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2.pom"/>
 				<caller organisation="default" name="telegrambot$sources" conf="compile, runtime-internal, runtime, optional" rev="3.7.2" rev-constraint-default="3.7.2" rev-constraint-dynamic="3.7.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scala-logging_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="9121" time="497" location="/home/mikhail/.ivy2/cache/com.typesafe.scala-logging/scala-logging_2.12/srcs/scala-logging_2.12-3.7.2-sources.jar">
+					<artifact name="scala-logging_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="9121" time="0" location="/home/mikhail/.ivy2/cache/com.typesafe.scala-logging/scala-logging_2.12/srcs/scala-logging_2.12-3.7.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/scala-logging/scala-logging_2.12/3.7.2/scala-logging_2.12-3.7.2-sources.jar"/>
 					</artifact>
 				</artifacts>

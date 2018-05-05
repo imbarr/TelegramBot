@@ -47,7 +47,7 @@ class Printer {
 
   def choiceQuestionResult(q: ChoiceQuestion): String =
     s"""${q.options.zipWithIndex.map(i =>
-      "    \"" + i._1 + "\": " + percent(q, i._2 + 1) + "%").mkString("\n")}""".stripMargin
+      "    \"" + i._1 + "\": " + percent(q, i._2) + "%").mkString("\n")}""".stripMargin
 
   def multipleQuestionResult(q: MultipleQuestion): String =
     s"""${q.options.zipWithIndex.map(i =>
